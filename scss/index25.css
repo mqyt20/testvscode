@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap");
+/*font-family: 'Noto Sans KR', sans-serif; font-weight:100;300;400;500*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 1;
+}
+
+.testdiv {
+  width: 400px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: "";
+      align-content: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: "black";
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid  black;
+}
+
+.testdiv > input {
+  margin-right: 10px;
+  visibility: hidden;
+}
+
+.testdiv > label {
+  width: auto;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.testdiv > label:before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url("./images/pc_ico.png");
+  background-position-x: -30px;
+  left: -30px;
+  top: 1px;
+  background-repeat: no-repeat;
+}
+
+.testdiv > label.checks:before {
+  background-position-x: 0px;
+}
+
+/*.testdiv>input:checked + .labelcss:before{
+    background-position-x:0px;
+}*/
+/*# sourceMappingURL=index25.css.map */

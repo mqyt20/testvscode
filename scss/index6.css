@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.ulbox {
+  width: 400px;
+  height: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ulbox > li {
+  float: left;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.ulbox > li:nth-of-type(1) {
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid black;
+  color: red;
+}
+
+.ulbox > li:nth-of-type(2) {
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid black;
+  color: blue;
+}
+
+.ulbox > li:nth-of-type(3) {
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid black;
+  color: green;
+}
+
+.ulbox > li:nth-of-type(4) {
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid black;
+  color: orange;
+}
+
+.sp {
+  width: 250px;
+  height: 25px;
+  display: block;
+  clear: both;
+}
+
+.sp > label {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  line-height: 25px;
+  color: white;
+}
+
+.sp > label:nth-child(1) {
+  background-color: blue;
+}
+
+.sp > label:nth-child(2) {
+  background-color: orange;
+}
+
+.sp > label:nth-child(3) {
+  background-color: green;
+}
+
+.sp > label:nth-child(4) {
+  background-color: purple;
+}
+
+.sp > label:nth-child(5) {
+  background-color: pink;
+}
+/*# sourceMappingURL=index6.css.map */

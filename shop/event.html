@@ -1,0 +1,42 @@
+<?php
+    $date = date("YmdHis");
+?>  
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE-Edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+    user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>2021EVENT</title>
+<script src="../js/jquery.js?v=3"></script>
+<script src="../js/menu.js?v=6"></script>
+<script src="../js/filter.js"></script>
+<script src="../js/search.js?v"></script>
+<link rel="short icon" href="./banner/favicon.ico"> 
+<link rel="stylesheet" type="text/css" href="./css/main.css?v=1">
+<link rel="stylesheet" type="text/css" href="./css/shopmain.css?v=<?php echo $date?>">
+<link rel="stylesheet" type="text/css" href="./css/event.css?v=<?php echo $date?>">
+<script>
+var _0x10b1=['15ihqFmW','27747vOTwZC','attr','.event_div2>.ok_game','click','786193VsBzuw','unbind','src','img','./event/number_','children','index','1038799dLxHdI','#gameBtn','<img\x20src=\x27./event/ok.gif\x27>','append','.png','183406ESHitv','fadeIn','846980pZFZkz','33613FTvtkm','1395119rldFCA'];var _0x1fd3=function(_0x29d1ed,_0x58d5c1){_0x29d1ed=_0x29d1ed-0x12a;var _0x10b146=_0x10b1[_0x29d1ed];return _0x10b146;};(function(_0x279ea3,_0xab8551){var _0x5b6611=_0x1fd3;while(!![]){try{var _0x21f6b8=-parseInt(_0x5b6611(0x12a))+-parseInt(_0x5b6611(0x136))+-parseInt(_0x5b6611(0x139))+-parseInt(_0x5b6611(0x13c))*-parseInt(_0x5b6611(0x13b))+-parseInt(_0x5b6611(0x131))+parseInt(_0x5b6611(0x138))+parseInt(_0x5b6611(0x13a));if(_0x21f6b8===_0xab8551)break;else _0x279ea3['push'](_0x279ea3['shift']());}catch(_0x48a849){_0x279ea3['push'](_0x279ea3['shift']());}}}(_0x10b1,0x96765),$(function(){var _0x328764=_0x1fd3,_0x19f792=0x5;$(_0x328764(0x132))[_0x328764(0x13f)](function(){var _0x501d07=_0x328764;_0x19f792--,_0x19f792==0x0&&(alert('게임이\x20종료되었습니다.'),$('#gameBlack')[_0x501d07(0x137)](0x1f4)),$('#count')[_0x501d07(0x12f)](_0x501d07(0x12d))[_0x501d07(0x13d)](_0x501d07(0x12c),_0x501d07(0x12e)+_0x19f792+_0x501d07(0x135));});let _0x45fccf=0x1;$(_0x328764(0x13e))['click'](function(){var _0x186ff2=_0x328764,_0x21e4de=$(this)[_0x186ff2(0x130)](),_0x231e88=_0x186ff2(0x133);$(this)[_0x186ff2(0x134)](_0x231e88),$('#oksign')['val'](_0x45fccf),$(this)[_0x186ff2(0x12b)](_0x186ff2(0x13f)),_0x45fccf<0x7?_0x45fccf++:(alert('정답을\x20모두\x20맞추셨습니다.\x20이벤트\x20참여에\x20완료되었습니다.'),$(_0x186ff2(0x132))[_0x186ff2(0x12b)](_0x186ff2(0x13f)));});}));
+</script>
+</head>
+<body>
+   <!--상단 배너-->
+   <header class="headercss" id="header">
+    <?php include "topbanner.html"; ?>
+  </header>
+   <!--쇼핑몰 메뉴-->
+   <nav class="navcss">
+    <?php include "menu.html"; ?>
+  </nav> 
+  <!--숨은그림 찾기-->
+  <section class="section_subpage">
+    <?php include "event_game.html"; ?>
+  </section>
+     <!-- 카피라이터-->
+  <footer class="footercss">
+    <?php include "footer.html"; ?>
+  </footer>
+</body>    
+</html>

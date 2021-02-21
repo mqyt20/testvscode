@@ -1,0 +1,34 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    line-height: 1;
+    box-sizing: border-box;
+}
+*{
+    @include base;
+}
+@mixin ani($width, $height, $color,$top,$left,$word,$indent){
+    width:$width+px;
+    height:$height+px;
+    background-color:$color;
+    top:$top+px;
+    left:$left+%;
+    letter-spacing:$word+px;
+    text-indent:$indent+px;
+}
+.box{
+    position:relative;
+    color:white;
+    @include ani(600,100,black,0,0,0,0);
+    transition-duration:2s;
+    transition-property:background-color, text-indent;
+    //property:width, height, top,left, bottom, letter-spacing,background-color,color
+    //font-size,opacity, border,margin, vertical-align, text-align
+    transition-timing-function: ease;
+    //transition-delay:0.2s;
+}
+
+.box:target{ //파라미터로 #아이디 값을 보내서 효과를 적용
+    @include ani(600,100,red,0,0,0,250);
+}

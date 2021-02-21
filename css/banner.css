@@ -1,0 +1,97 @@
+@charset "UTF-8";
+/*기본 세팅*/
+html, body, div, span, label,
+header, section, aside, footer, nav, 
+video,table, tr, td, th{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    font:inherit;
+}
+header, section, aside, footer, nav, main, label, span{
+    display:block;
+}
+body{
+    line-height:1;
+    -webkit-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    text-size-adjust:none;
+}
+ol, ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+img{
+    width:100%;
+}
+*{box-sizing: border-box;}
+
+/*메인 롤링 파트 시작*/
+.banner_part{
+    height:500px;
+    margin-top:50px;
+}
+.banner_box{
+    width:1000px;
+    height:500px;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+}
+.banners{
+    height:500px;
+    position:absolute;
+}
+.banners > li{
+    width:1000px;
+    height:500px;
+    float:left;
+}
+/*  좌우 버튼  */
+.banner_box > label{
+    width:50px;
+    height:50px;
+    opacity:0.8;
+    position:absolute;
+    z-index:5;
+    top:50%;
+    margin-top:-25px;
+    cursor:pointer;
+    display:none;
+}
+.banner_box > label> img{
+    width:100%;
+}
+.left_btn{
+    left:5px;
+}
+.right_btn{
+    right:5px;
+}
+/* 디스크 */
+.disc{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    position:absolute;
+    z-index:10;
+    bottom:10px;
+    text-align: center;
+}
+.disc>li{
+    width:10px;
+    height:10px;
+    background-color: black;
+    border-radius: 50%;
+    opacity:0.7;
+    display:inline-block;
+    cursor:pointer;
+}
+.disc>li:first-child{
+    background-color: red;
+}
+/*메인 롤링 파트 끝*/
+

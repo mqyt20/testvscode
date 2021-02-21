@@ -1,0 +1,69 @@
+<?php
+    $r = date("YmdHis");
+    include "newitem.php";
+?>  
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE-Edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+    user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">   
+<title>MINIMAL</title>
+<script src="../js/jquery.js?v=3"></script>
+<script src="../js/menu.js?v=13"></script>
+<script src="../js/filter.js?v=7"></script>
+<script src="../js/search.js?v=<?php echo $date?>"></script>
+<link rel="short icon" href="./banner/favicon.ico"> 
+<link rel="stylesheet" type="text/css" href="./css/main.css?v=1">
+<link rel="stylesheet" type="text/css" href="./css/shopmain.css?v=<?php echo $date?>">
+<script>
+var _0x2f3c=['12251QKVhFs','26504ArjgkP','toGMTString','64817raTjYB',';\x20path=/;\x20expires=','setDate','getDate','closeDayck','3SBfnbI','replace','3cCGxVL','checked','125RoRWFU','some','split','fadeOut','69545ueGGUE','true','66699YkolWj','1ZxVROl','390382pdemfK','910gfsIOw','event','2CyyAtR','cookie'];var _0x1a56=function(_0x281bf8,_0x4b31cb){_0x281bf8=_0x281bf8-0xf6;var _0x2f3ce1=_0x2f3c[_0x281bf8];return _0x2f3ce1;};(function(_0x4f9f53,_0x1e1ff3){var _0x3b67fc=_0x1a56;while(!![]){try{var _0x184d52=-parseInt(_0x3b67fc(0x102))*-parseInt(_0x3b67fc(0xf9))+parseInt(_0x3b67fc(0x107))+parseInt(_0x3b67fc(0x10e))*-parseInt(_0x3b67fc(0x106))+parseInt(_0x3b67fc(0x104))*parseInt(_0x3b67fc(0xfd))+parseInt(_0x3b67fc(0xf7))*parseInt(_0x3b67fc(0xff))+-parseInt(_0x3b67fc(0x100))*-parseInt(_0x3b67fc(0x109))+-parseInt(_0x3b67fc(0x101));if(_0x184d52===_0x1e1ff3)break;else _0x4f9f53['push'](_0x4f9f53['shift']());}catch(_0x4f65d5){_0x4f9f53['push'](_0x4f9f53['shift']());}}}(_0x2f3c,0x1c983));function closepopup(){var _0x408182=_0x1a56,_0x2203d1=document['getElementById'](_0x408182(0x10d))[_0x408182(0xf8)];_0x2203d1==!![]&&setcookie(_0x408182(0x103),_0x408182(0xfe),0x1),$('#popup')[_0x408182(0xfc)](0x1);}function setcookie(_0x45bc46,_0x83b137,_0x3715b3){var _0x531f06=_0x1a56,_0x45cf71=new Date();_0x45cf71[_0x531f06(0x10b)](_0x45cf71[_0x531f06(0x10c)]()+_0x3715b3),document[_0x531f06(0x105)]=_0x45bc46+'='+escape(_0x83b137)+_0x531f06(0x10a)+_0x45cf71[_0x531f06(0x108)]()+';';}function getcookie(_0x543716){var _0x38a539=_0x1a56,_0x1b2c1a='',_0x303f1a=document[_0x38a539(0x105)][_0x38a539(0xfb)](';');return _0x303f1a[_0x38a539(0xfa)](function(_0x3f4c37){var _0x3348f8=_0x38a539;_0x3f4c37=_0x3f4c37[_0x3348f8(0xf6)]('\x20','');var _0x4025df=_0x3f4c37[_0x3348f8(0xfb)]('=');if(_0x543716==_0x4025df[0x0])return _0x1b2c1a=_0x4025df[0x1],!![];}),_0x1b2c1a;}
+</script>
+</head>
+<body>
+  <!--레이어팝업-->  
+  <div class="popup" id="popup">
+    <a href="./event.html" target="./blank"><img src="./event/evt_popup.png"></a>
+    <span class="msg_area">
+        <input type="checkbox" id="closeDayck" class="closePop popclose_ck">
+        <label for="closeDayck" class="closePop">오늘 하루 그만보기</label>
+        <button type="button" class="closePop popclose_btn" onclick="closepopup();">창닫기</button>
+    </span>
+  </div>
+  <!--상단 배너-->
+  <header class="headercss" id="header">
+    <?php include "topbanner.html"; ?>
+  </header>
+   <!--쇼핑몰 메뉴-->
+  <nav class="navcss">
+    <?php include "menu.html"; ?>
+  </nav>
+   <!--메인 배너-->
+  <section class="bannercss">
+    <?php include "mainbanner.html"; ?>
+  </section>
+  <!--이달 추천 상품-->
+  <section class="newcss">
+    <?php include "newitem.html"; ?>
+  </section>
+  <!--베스트 상품-->
+  <main class="bestcss">
+    <?php include "bestitem.html"; ?>
+  </main>
+  <!--ACC 상품-->
+  <section class="accss">
+    <?php include "accitem.html"; ?>
+  </section>
+   <!-- 카피라이터-->
+  <footer class="footercss">
+    <?php include "footer.html"; ?>
+  </footer>
+</body>  
+<script>
+    var pop_cookie = getcookie("event");
+    if(pop_cookie == ""){
+        document.getElementById("popup").style.display="block";
+    }
+</script>  
+</html>

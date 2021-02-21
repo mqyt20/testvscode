@@ -1,0 +1,89 @@
+<meta charset="utf-8">
+<script src="../js/qawrite.js"></script>
+<form name="qa" id="qa" enctype="multipart/form-data">
+<div class="qa_write_div">
+    <span class="qa_write_title">상품 문의</span>
+    <span class="qa_write_area">
+        <ul class="qa_write_ul1 qa_write_ul1_confirm">
+            <li>제목</li>
+            <li>상품 선택</li>
+            <li>문의 유형</li>
+            <li>작성자</li>
+            <li>비밀번호</li>
+            <li id="file_add_title_li" class="file_add_title">첨부파일(이미지)</li>
+            <li class="content_li">문의 내용</li>
+            <li class="auto_prevent_li">자동등록방지</li>
+        </ul>
+        <ul class="qa_write_ul2">
+            <li>
+                <input type="text" class="title_input" name="qa_subject" autofocus></li>
+            <li>
+                <input type="text" class="qa_product_label" id="qa_product"
+                    name="qa_product" value="" readonly placeholder="선택된 상품이 없습니다.">
+                <button type="button" class="qa_product_btn" id="qa_product_btn">상품 선택</button>
+            </li>
+            <li>
+                <select class="qa_type_selec" name="qa_part">
+                    <option value="" selected>문의 유형 선택</option>
+                    <option value="상품">상품</option>
+                    <option value="배송">배송</option>
+                    <option value="반품/환불">반품/환불</option>
+                    <option value="교환/변경">교환/변경</option>
+                    <option value="결제">결제</option>
+                    <option value="기타">기타</option>
+                </select>
+            </li>
+            <li>
+                <input type="text" class="qa_writer_input" name="qa_writer">
+            </li>
+            <li>
+                <input type="password" class="qa_pw_input" name="qa_passwd">
+            </li>
+            <li>
+                <label class="qa_add_label" id="qa_wf1"></label>
+                 <label class="qa_add_file" for="qa_file1">
+                    <em>찾아보기</em>
+                </label>   
+                <input type="file" class="add_file_input" name="qa_file1" id="qa_file1">
+                <button type="button" class="qa_add_btn" id="fileAddBtn">
+                    <em class="em_add">추가</em>
+                </button>
+            </li>
+            <li class="add_file_li" id="add_file_li">
+                <label class="qa_add_label" id="qa_wf2"></label>
+                <label class="qa_add_file" for="qa_file2">
+                    <em>찾아보기</em>
+                </label> 
+                <input type="file" class="add_file_input" name="qa_file2" id="qa_file2">
+            </li>
+    
+            <li class="content_li">
+                <div>
+                    <input type="checkbox" id="qaSecretCk" name="check_num" value="Y">
+                    <label for="qaSecretCk">비밀글</label>
+                </div>
+                <div>
+                    <textarea id="qatext" name="qatext"></textarea>
+                    <script>
+                        CKEDITOR.replace('qatext',{height:255});
+                    </script>
+                </div>
+            </li>
+            <li class="auto_prevent_li">
+                <div class="auto_prevent_div1">
+                    <img src="./code.php" id="codeImg">
+                </div>
+                <div class="auto_prevent_div2">
+                    <label>보이는 순서대로<br>숫자 및 문자를 모두 입력해 주세요.</label>
+                    <label><input type="text" name="qa_code" maxlength="6"></label>
+                    <label> <button type="button" class="img_reload_btn" onclick="autoCode();">이미지 새로 고침</button></label>
+                </div>
+            </li>
+        </ul>
+    </span>
+    <span class="qa_btn_area">
+        <button type="button" onclick="qaUpload();">문의등록</button>
+        <button type="button" onclick="javascript:void history.go(-1);">등록취소</button>
+    </span>
+</div>
+</form>

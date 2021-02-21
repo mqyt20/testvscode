@@ -1,0 +1,40 @@
+<?php
+$date=date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,
+user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>SCSS6일차 -scss+jquery(fadeIn, fadeOut)</title>    
+<link rel="stylesheet" type="text/css" href="./index25.css?v=<?php echo $date?>">
+<script src="../jquery/jquery.js"></script>
+<script>
+$(function(){
+  $('#agree_label').click(function(){
+      $(this).toggleClass('checks');
+   /*  if($('#agree').is(':checked')){
+         $(this).addClass("checks");
+      }else{
+        $(this).removeClass('checks');
+        }*/
+  });
+
+  $('#btn').click(function(){
+    if($('#agree').is(':checked')){
+          alert('체크되었습니다.');
+      }
+  });
+});
+</script>
+</head>
+<body>
+<div class="testdiv">
+    <input type="checkbox" id="agree" value="off">
+    <label for="agree" id="agree_label">로그인 상태 유지</label>
+</div>
+<br>
+<button type="button"id="btn">확인</button>
+</body> 
+</html>   

@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+@mixin base{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    line-height:1;
+}
+*{
+    @include base;
+}
+.box{
+    width:600px;
+    height:auto;
+    border:1px solid black;
+    margin:0 auto;
+}
+.ulcss{
+    list-style: none;
+    width:100%;
+    height:auto;
+    display:grid;
+    grid-template-columns: 30px auto 100px 150px;
+    grid-template-rows: 30px 40px;
+    grid-gap:1px;
+    //justify-content: center;
+    //align-content: space-around; 
+    //부모요소에 height가 명확(autoX)하면 gap적용을 안해도 space-around가 적용이 됨
+    //(grid는 wrap여부 상관이 없음);
+    //align-content: space-evenly;모든 여백을 고르게 정렬
+}
+.ulcss > li{
+    background-color:skyblue;
+    text-align:center;
+}
+.olcss{
+ width:320px;
+ height:60px;
+ border:1px solid black;
+ margin:0 auto;
+ display:grid;
+ list-style: none;
+ grid-template-rows:30px;
+ grid-template-columns: repeat(6,30px);
+ grid-template-areas: 
+   "l1 l2 l3 l4 l5 l6" ;
+  justify-content:space-around;
+ align-content: space-around;
+ &>li{
+     display:flex;
+     justify-content: center;
+     align-items: center;
+     cursor:pointer;
+     background-color: #ccc;
+     color:white;
+
+     &:first-child{
+         background-color: blue;
+     }
+ }
+}
+@for $i from 1 through 6{
+    .olcss>li:nth-child(#{$i}){
+        grid-area: l#{$i};
+    }
+}

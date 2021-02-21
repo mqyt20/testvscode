@@ -1,0 +1,260 @@
+<meta charset="UTF-8">
+<?php
+  include "buy.php";
+?>
+<form name="orderForm">
+<input type="hidden" name="version" value="1.0">
+<input type="hidden" name="goodsno" value="<?php echo $_POST['goodsno']?>">
+<input type="hidden" name="mid" value="">
+<input type="hidden" name="goodname" id="goodname" value="<?php echo $_POST['goodname']?>"><!--상품명-->
+<input type="hidden" name="oid" value="">
+<input type="hidden" name="price" id="hiddenPrice" value="<?php echo $_POST['price']?>"><!--상품가-->
+<input type="hidden" name="price2" id="hiddenPrice2" value="">
+<input type="hidden" name="goodea" id="goodea" value="<?php echo $_POST['goodea']?>"><!--상품 개수-->
+<input type="hidden" name="currency" value="WON">
+<input type="hidden" name="mKey" value="">
+<input type="hidden" name="gopaymethod" value="">
+<input type="hidden" name="offerPeriod" value="">
+<input type="hidden" name="payViewType" value="overlay">
+<input type="hidden" name="charset" value="UTF-8">
+<input type="hidden" name="options" id="options" value="<?php echo $_POST['product_option']?>">
+<input type="hidden" name="returnUrl" value="http://intern20.dothome.co.kr/portfolio/shop/return.php">
+
+<!--order list-->
+<div class="product_buy_div">
+    <p class="product_buy_p">ORDER</p>
+    <label class="order_list_lb">주문상세 내역</label>
+    <ul class="product_buy_title_ul">
+        <li>상품/옵션 정보</li>
+        <li>수량</li>
+        <li>상품 금액</li>
+        <li>할인/적립</li>
+        <li>합계금액</li>
+        <li>배송비</li>
+    </ul>
+    <ul class="product_buy_list_ul">
+        <li class="product_buy_list_li1">
+            <div class="buylist_img_div" id="order_img"><img src=""></div>
+            <div class="product_buy_list_div">
+                <span class="order_pnm" id="order_pnm"></span>
+                <span id="order_op"></span>
+            </div>
+        </li>
+        <li id="order_ea1" class="order_ea1"></li>
+        <li class="ea_price" id="ea_price"></li>
+        <li class="product_sales" id="product_sales"></li>
+        <li class="sum_price" id="final_price"></li>
+        <li class="order_deliveryP">기본-금액별 배송비<br>2,500원</li>
+    </ul>
+    <label class="go_shbag"><a href="#" class="go_shbag_a">장바구니 가기</a></label>
+    <!--======상품 합계============-->
+    <ul class="totalPrice_beforePay_ul">
+        <li>총 <em class="beforePay_em1" id="order_ea2"></em>개의 상품금액 
+                <em class="beforePay_em2" id="ea_price_sum"></em>
+        </li>
+        <li class="beforePay_ul_li2">배송비 <em class="beforePay_em3">2,500</em>원</li>
+        <li class="beforePay_ul_li3"><em class="beforePay_em4" id="last_finalP"></em></li>
+        <li class="milage">적립예정 마일리지:0원</li>
+    </ul>
+</div>
+<!--========주문자 정보=============-->
+  <div class="orderer_info_div">
+    <p class="orderer_info_p">주문자 정보</p>
+    <ul class="orderer_info_title_ul">
+        <li>주문하시는 분</li>
+        <li>주소</li>
+        <li>전화번호</li>
+        <li>휴대폰번호</li>
+        <li>이메일</li>
+    </ul>
+    <ul class="orderer_info_content_ul">
+        <li>
+            <input type="text" placeholder="홍길동" name="buyername">
+        </li>
+        <li class="orderer_info_content_li2">
+            <input type="text" value="03138" name="order_post" id="order_post" maxlength="5" class="postcodify" readonly>
+            <input type="text" value="서울특별시 종로구 관수동 수표로 96"  name="order_addr1" id="order_addr1" readonly>
+            <input type="text" value="국일빌딩 그린컴퓨터학원" name="order_addr2" id="order_addr2" readonly>
+        </li>
+        <li>
+            <input type="text" placeholder="010-1234-5678" name="buy_tel" class="order_tel" maxlength="11">
+        </li>
+        <li>
+            <input type="text" placeholder="010-1234-5678" name="buyertel" class="order_tel"  maxlength="11">
+        </li>
+        <li>
+            <input type="email" placeholder="test@naver.com" name="buyeremail">
+            <select class="orderer_mail_selec" id="odererMailSelec">
+                <option value="">직접입력</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="nate.com">nate.com</option>
+                <option value="hanmail.net">hanmail.net</option>
+                <option value="outlook.co.kr">outlook.co.kr</option>
+            </select>
+        </li>
+    </ul>
+  </div>
+<!--===============배송 정보===============-->
+  <div class="address_info_div">
+    <p class="address_info_p">배송정보</p>
+    <ul class="address_info_title_ul">
+        <li>배송지 확인</li>
+        <li>받으실 분</li>
+        <li class="order_addr_li">받으실 곳</li>
+        <li>전화번호</li>
+        <li>휴대폰 번호</li>
+        <li>남기실 말씀</li>
+        <li>회원정보 반영</li>
+    </ul>
+    <ul class="address_info_content_ul">
+        <li class="address_info_content_li1">
+            <input type="radio" name="receiver_delpart" value="기본 배송지" id="ordr1" data="0" checked>
+            <label for="ordr1">기본 배송지</label>
+            <input type="radio" name="receiver_delpart" value="최근 배송지" id="ordr2" data="1" >
+            <label for="ordr2">최근 배송지</label>
+            <input type="radio" value="신규 배송지" name="receiver_delpart" id="ordr3" data="2">
+            <label for="ordr3">신규 배송지</label>
+            <input type="radio" value="주문자 정보와 동일" name="receiver_delpart" id="ordr4" data="3">
+            <label for="ordr4">주문자 정보와 동일</label>
+            <button type="button" class="ordr_btn">배송지 관리</button>
+        </li>
+        <li>
+            <input type="text" name="receiver_name">
+        </li>
+        <li class="order_addr_li">
+            <span class="order_addr_li_sp1">
+                <input type="text" name="receiver_post" class="postcodify_postcode5" readonly>
+                <button type="button" class="order_addr_search_btn" id="order_addr_search_btn">우편번호 검색</button>
+            </span>
+            <span class="order_addr_li_sp2">
+                <input type="text" name="receiver_addr" class="postcodify_address"  readonly>
+                <input type="text" name="receiver_addr2">
+            </span>
+            <span class="order_addr_li_sp3">
+                <input type="checkbox" id="addrSaveCk">
+                <label for="addrSaveCk" class="addrSaveCk_lb cursor">나의 배송지에 추가합니다.</label>
+            </span>
+        </li>
+        <li>
+            <input type="text" name="receiver_tel" class="order_tel" maxlength="11">
+        </li>
+        <li>
+            <input type="text" name="receiver_hp" class="order_tel"  maxlength="11">
+        </li>
+        <li class="delivery_msg_li">
+            <input type="text" name="receiver_say">
+        </li>
+        <li class="memberInfoSave_li">
+            <input type="checkbox" id="memberInfoSaveCk">
+            <label for="memberInfoSaveCk" class="cursor">
+                위 내용을 회원 정보에 반영합니다.<i> (주소/전화번호/휴대폰번호)</i>
+            </label>
+        </li>
+    </ul>
+  </div>
+
+<!--=================결제정보==================-->
+  <div class="order_pay_info_div">
+    <p class="order_pay_info_p">결제정보</p>
+    <ul class="order_pay_info_title_ul">
+        <li>상품 합계 금액</li>
+        <li>배송비</li>
+        <li class="order_pay_info_title_li3">할인 및 적립</li>
+        <li>쿠폰 사용</li>
+        <li class="order_pay_info_title_li5">마일리지 사용</li>
+        <li>예치금 사용</li>
+        <li>최종 결제 금액</li>
+    </ul>
+    <ul class="order_pay_info_content_ul">
+        <li class="order_pay_info_content_li1" id="eeaa_price1"></li>
+        <li class="order_pay_info_content_li2">2,500원</li>
+        <li class="order_pay_info_content_li3">
+            <span>할인:<b>(-) 0원</b><i> (상품 0원, 회원 0원, 쿠폰 0원)</i></span>
+            <span>적립 마일리지:<b>(+) 0원</b><i> (상품 0원, 회원 0원, 쿠폰 0원)</i></span>
+        </li>
+        <li class="order_pay_info_content_li4">
+            <button type="button" class="apply_coupon_btn">쿠폰 조회 및 적용</button>
+        </li>
+        <li class="order_pay_info_content_li5">
+            <label class="myMileage_lb">
+                <input type="text" disabled name="mileage_use"> 원
+                <span class="myMileage_sp1">(보유 마일리지 : 0원)</span>
+            </label>
+            <span class="myMileage_sp2">※ 0원 이상 보유해야 사용이 가능합니다.</span>
+        </li>
+        <li class="order_pay_info_content_li6">            
+            <input type="text"> 원
+            <input type="checkbox" id="depositCk" class="depositCk">
+            <label for="depositCk" class="cursor">전액 사용하기</label>
+            <label class="deposit_save">(보유 예치금 : 0원)</label>
+        </li>
+        <li class="order_pay_info_content_li7" id="ffinal_price"></li>
+    </ul>
+ </div>
+
+
+<!--==================결제 수단 선택 / 결제=================-->
+  <div class="order_payment_div">
+    <p class="order_payment_p">결제수단 선택/결제</p>
+    <ul class="order_payment_ul">
+        <li class="order_payment_li1">
+            <input type="radio" name="gopaymethod" id="payment1" value="directbank">
+            <label for="payment1" class="cursor">일반결제</label>
+            <input type="radio" name="gopaymethod" id="payment2" value="Card" checked>
+            <label for="payment2" class="cursor">신용카드결제</label>
+            <input type="radio" name="gopaymethod" id="payment3" value="HPP">
+            <label for="payment3" class="cursor">휴대폰결제</label>
+        </li>
+        <li class="order_payment_li2" id="order_payment_li2">
+            <span>
+                <input type="radio" name="gopaymethod2" id="payment4" value="">
+                <label for="payment4" class="cursor">무통장 입금</label>
+            </span>
+            <span>(무통장 입금의 경우 입금 확인 후부터 배송단계가 진행됩니다.)</span>
+        </li>
+        <li class="order_payment_li3" id="order_payment_li3">
+            <span>
+                <label for="payer">입금자명</label>
+                <input type="text" id="payer" name="banksend_name">
+            </span>
+            <span>
+                <label for="payBank">입금은행</label>
+                <select id="payBank" name="bank_name">
+                    <option value="">선택하세요.</option>
+                    <option>신한은행 110-123-123456</option>
+                    <option>우리은행 1005-123-123456</option>
+                    <option>국민은행 110-123-123456</option>
+                    <option>농협 110-123-123456</option>
+                </select>
+            </span>
+        </li>
+        <li class="order_payment_li4" id="order_payment_li4">
+            <span>현금영수증/계산서 발행</span>
+            <input type="radio" name="choice_tax" id="no_recipt" checked>
+            <label for="no_recipt" class="cursor">신청안함</label>
+            <input type="radio" name="choice_tax" id="selec_recipt">
+            <label for="selec_recipt" class="cursor">세금계산서</label>
+        </li>
+    </ul>
+    <div class="total_price_div">
+        <ul class="total_price_ul">
+            <li>최종 결제 금액</li>
+            <li id="final_price_last"></li>
+            <li>원</li>
+        </ul>
+    </div>
+    <div class="payment_agree_div">
+        <input type="checkbox" name="ordercheck" id="paymentAgr" value="Y" class="ordercheck">
+        <label for="paymentAgr" class="paymentAg_lb">
+            <i>(필수)</i>구매하실 상품의 결제정보를 확인하였으며, 구매 진행에 동의합니다.
+        </label>
+    </div>
+    <div class="payment_agree_btn_div">
+        <button type="button" class="payment_agree_btn" onclick="productPay();">결제하기</button>
+    </div>
+  </div>
+</form>
+<script>
+const _0x49f7=['1YmOVoS','<b\x20style=\x27color:black;\x27>-</b>','product_money','#ea_price','#options','#product_sales','1dfjnnw','product_dcnum','product_dcpart','#hiddenPrice','24TqibHM','945232stLzUb','html','#order_img>img','#order_ea1,\x20#order_ea2','#last_finalP,\x20#ffinal_price','97743VoBovG','29lCVeEm','31366rHcnNv','parse','toLocaleString','text','attr','2326hxvtlF','31nnEkUf','val','17681qDsnHH','#order_pnm','#order_op','옵션사항\x20:\x20','31099SCzscp','643340ffcKuz','#final_price_last','7QrZLRw','product_nm','#final_price,\x20#ea_price_sum,\x20#eeaa_price1','#hiddenPrice2'];const _0x3973=function(_0x3ad373,_0x533cc4){_0x3ad373=_0x3ad373-0x138;let _0x49f7de=_0x49f7[_0x3ad373];return _0x49f7de;};(function(_0x362839,_0x3464d5){const _0x5459ff=_0x3973;while(!![]){try{const _0x4e6475=-parseInt(_0x5459ff(0x153))+-parseInt(_0x5459ff(0x14e))*-parseInt(_0x5459ff(0x13e))+parseInt(_0x5459ff(0x144))*parseInt(_0x5459ff(0x155))+parseInt(_0x5459ff(0x145))*-parseInt(_0x5459ff(0x146))+parseInt(_0x5459ff(0x14b))*parseInt(_0x5459ff(0x14c))+parseInt(_0x5459ff(0x159))*parseInt(_0x5459ff(0x152))+parseInt(_0x5459ff(0x13a))*parseInt(_0x5459ff(0x13f));if(_0x4e6475===_0x3464d5)break;else _0x362839['push'](_0x362839['shift']());}catch(_0x15207c){_0x362839['push'](_0x362839['shift']());}}}(_0x49f7,0x9377c),$(function(){const _0x53b6fa=_0x3973,_0x4e3285=JSON[_0x53b6fa(0x147)]('<?php\x20echo\x20$prints;\x20?>');$(_0x53b6fa(0x141))[_0x53b6fa(0x14a)]('src',_0x4e3285[0x0]['product_img']),$(_0x53b6fa(0x14f))[_0x53b6fa(0x149)](_0x4e3285[0x0][_0x53b6fa(0x156)]),$(_0x53b6fa(0x150))[_0x53b6fa(0x149)](_0x53b6fa(0x151)+$(_0x53b6fa(0x138))[_0x53b6fa(0x14d)]()),$(_0x53b6fa(0x142))[_0x53b6fa(0x149)]($('#goodea')[_0x53b6fa(0x14d)]()),$(_0x53b6fa(0x15c))[_0x53b6fa(0x149)](Number(_0x4e3285[0x0][_0x53b6fa(0x15b)])[_0x53b6fa(0x148)]()+'원'),_0x4e3285[0x0][_0x53b6fa(0x13b)]==''||_0x4e3285[0x0][_0x53b6fa(0x13b)]=='0'?$(_0x53b6fa(0x139))[_0x53b6fa(0x140)](_0x53b6fa(0x15a)):_0x4e3285[0x0][_0x53b6fa(0x13c)]=='P'?$(_0x53b6fa(0x139))[_0x53b6fa(0x140)](Number(_0x4e3285[0x0]['product_dcnum'])[_0x53b6fa(0x148)]()+'%'):$(_0x53b6fa(0x139))['html'](Number(_0x4e3285[0x0]['product_dcnum'])[_0x53b6fa(0x148)]()+'원'),$(_0x53b6fa(0x157))[_0x53b6fa(0x149)](Number($('#hiddenPrice')['val']())[_0x53b6fa(0x148)]()+'원'),$(_0x53b6fa(0x143))[_0x53b6fa(0x149)]((Number($(_0x53b6fa(0x13d))[_0x53b6fa(0x14d)]())+0x9c4)[_0x53b6fa(0x148)]()+'원'),$(_0x53b6fa(0x154))[_0x53b6fa(0x149)]((Number($(_0x53b6fa(0x13d))[_0x53b6fa(0x14d)]())+0x9c4)['toLocaleString']()),$(_0x53b6fa(0x158))[_0x53b6fa(0x14d)](Number($(_0x53b6fa(0x13d))['val']())+0x9c4);}));
+</script>

@@ -1,0 +1,1125 @@
+@charset "UTF-8";
+/* 폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+/*font-family: 'Noto Sans KR', sans-serif;  font-weight:100,300,400,500,700,900*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+/*font-family: 'Nanum Gothic',   font-weight:400,700,800 */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+/*font-family: 'Nanum Pen Script', cursive;  font-weight:400*/
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100;300;400;500;600;700;800;900&display=swap");
+/*font-family: 'Big Shoulders Stencil Display', cursive;  font-weight:100~900(200제외)*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+/*font-family: 'Open Sans', sans-serif;  font-weight: 300,400,600,700,800*/
+.cursor {
+  cursor: pointer;
+}
+
+/*==========주문 상세 내역============*/
+.product_buy_div {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+}
+
+.product_buy_p {
+  width: 100%;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Nanum Gothic';
+  font-weight: 800;
+  font-size: 16px;
+  color: #454952;
+  text-align: center;
+  line-height: 80px;
+  border-bottom: 2px solid #ccc;
+}
+
+.order_list_lb {
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: "";
+  font-size: 15px;
+  color: #454952;
+  line-height: 60px;
+  border-bottom: 1px solid #454952;
+}
+
+.product_buy_title_ul {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  color: gray;
+  overflow: hidden;
+}
+
+.product_buy_title_ul > li {
+  line-height: 40px;
+}
+
+.product_buy_list_ul {
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.product_buy_title_ul > li, .product_buy_list_ul > li {
+  float: left;
+  height: 100%;
+  text-align: center;
+}
+
+.product_buy_title_ul > li:nth-of-type(1), .product_buy_list_ul > li:nth-of-type(1) {
+  width: 250px;
+}
+
+.product_buy_title_ul > li:nth-of-type(2), .product_buy_list_ul > li:nth-of-type(2) {
+  width: 50px;
+}
+
+.product_buy_title_ul > li:nth-of-type(3), .product_buy_list_ul > li:nth-of-type(3) {
+  width: 150px;
+}
+
+.product_buy_title_ul > li:nth-of-type(4), .product_buy_list_ul > li:nth-of-type(4) {
+  width: 150px;
+}
+
+.product_buy_title_ul > li:nth-of-type(5), .product_buy_list_ul > li:nth-of-type(5) {
+  width: 150px;
+}
+
+.product_buy_title_ul > li:nth-of-type(6), .product_buy_list_ul > li:nth-of-type(6) {
+  width: 250px;
+}
+
+.product_buy_list_ul > li {
+  padding: 10px;
+}
+
+.product_buy_list_ul > li:nth-of-type(2) {
+  line-height: 60px;
+}
+
+.product_buy_list_ul > li:nth-of-type(3) {
+  line-height: 60px;
+}
+
+.product_buy_list_ul > li:nth-of-type(4) {
+  line-height: 60px;
+}
+
+.product_buy_list_ul > li:nth-of-type(5) {
+  line-height: 60px;
+}
+
+.product_buy_list_ul > li:nth-of-type(1) {
+  text-align: left !important;
+}
+
+.buylist_img_div {
+  width: 40px;
+  height: 40px;
+  margin: 10px 10px 0 0;
+  padding: 0;
+  border: 0;
+  float: left;
+  background-color: gray;
+}
+
+.buylist_img_div > img {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.product_buy_list_div {
+  width: 180px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.product_buy_list_div > span:nth-of-type(1) {
+  width: 100%;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 25px;
+}
+
+.product_buy_list_div > span:nth-of-type(2), .product_buy_list_div > span:nth-of-type(3) {
+  width: 100%;
+  height: 15px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 15px;
+  font-size: 12px;
+  color: gray;
+}
+
+.sum_price, .order_ea1 {
+  color: black;
+  font-weight: bold;
+}
+
+.ea_price {
+  color: black;
+}
+
+.product_sales {
+  color: orangered;
+}
+
+.order_pnm {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.order_deliveryP {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  font-size: 12px;
+  color: gray;
+  line-height: 15px;
+}
+
+.go_shbag {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 40px;
+}
+
+.go_shbag > .go_shbag_a {
+  text-decoration: underline;
+  letter-spacing: 1.3;
+  color: gray;
+  position: relative;
+  margin-left: 20px;
+}
+
+.go_shbag_a:before {
+  content: "<";
+  position: absolute;
+  left: -10px;
+  margin-right: 10px;
+}
+
+.totalPrice_beforePay_ul {
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  padding: 0 20px 0 0;
+  border: 1px solid #ccc;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: gray;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.totalPrice_beforePay_ul > li {
+  float: left;
+}
+
+.totalPrice_beforePay_ul em {
+  font-style: normal;
+}
+
+.beforePay_ul_li2, .beforePay_ul_li3 {
+  margin-left: 40px;
+  position: relative;
+}
+
+.beforePay_ul_li2:before, .beforePay_ul_li3:before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background: url("../images/plus.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  left: -32px;
+  top: -6px;
+}
+
+.beforePay_ul_li3:before {
+  background: url("../images/total.png") no-repeat center;
+  top: -5px;
+}
+
+.beforePay_em1 {
+  color: salmon;
+  font-weight: bold;
+}
+
+.beforePay_em2 {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.beforePay_em3 {
+  color: #454952;
+}
+
+.beforePay_em4 {
+  color: black;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.milage {
+  position: absolute;
+  font-size: 12px;
+  color: salmon;
+  bottom: 10px;
+  right: 20px;
+}
+
+/*============= 주문자 정보 ===========*/
+.orderer_info_div {
+  width: 1000px;
+  height: 180px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.orderer_info_p {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: "";
+  font-size: 15px;
+  color: #454952;
+  border-bottom: 1px solid #454952;
+}
+
+.orderer_info_title_ul {
+  width: 200px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.orderer_info_title_ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0 0 0 5px;
+  border: 0;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+}
+
+.orderer_info_content_ul {
+  width: 800px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.orderer_info_content_ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 5px 0 0 10px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.orderer_info_content_ul > li > input {
+  width: 250px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  text-indent: 5px;
+  outline: 0;
+}
+
+.orderer_info_content_ul > .orderer_info_content_li2 {
+  padding-top: 5px;
+}
+
+.orderer_info_content_ul > .orderer_info_content_li2 > input {
+  float: left;
+  margin-right: 7px;
+}
+
+.orderer_info_content_ul > .orderer_info_content_li2 > .postcodify {
+  width: 120px;
+}
+
+.orderer_mail_selec {
+  width: 150px;
+  height: 20px;
+  margin: 0 0 0 5px;
+  padding: 0 0 0 5px;
+  border: 1px solid #ccc;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background: url("../images/select.svg") no-repeat 99% 50%;
+}
+
+.orderer_mail_selec::-ms-expand {
+  display: none;
+}
+
+/*================== 배송 정보 ===============*/
+.address_info_div {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.address_info_p {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: "";
+  font-size: 15px;
+  color: #454952;
+  border-bottom: 1px solid #454952;
+}
+
+.address_info_title_ul {
+  width: 200px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.address_info_title_ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+  line-height: 30px;
+}
+
+.address_info_title_ul > .order_addr_li {
+  height: 90px;
+}
+
+.address_info_title_ul > .order_addr_li_page2 {
+  height: 60px;
+}
+
+.address_info_content_ul {
+  width: 800px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.address_info_content_ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 5px 0 0 10px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.address_info_content_ul input[type='text'] {
+  width: 250px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  text-indent: 5px;
+  outline: 0;
+}
+
+.address_info_content_ul > .address_info_content_li1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: "";
+      align-content: "";
+  padding-top: 0;
+}
+
+.address_info_content_ul > .address_info_content_li1 > label {
+  margin-right: 10px;
+  cursor: pointer;
+  line-height: 30px;
+}
+
+.address_info_content_ul > .address_info_content_li2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: "";
+      align-content: "";
+}
+
+.address_info_content_ul > .address_info_content_li2 > input {
+  float: left;
+}
+
+.ordr_btn {
+  width: 100px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  color: #454952;
+  font-family: 'Nanum Gothic';
+  font-size: 13px;
+  cursor: pointer;
+  outline: 0;
+  vertical-align: top;
+}
+
+.address_info_content_ul > .order_addr_li {
+  height: 90px;
+  padding-top: 0;
+}
+
+.address_info_content_ul > .order_addr_li > span {
+  height: 30px;
+  padding-top: 5px;
+}
+
+.address_info_content_ul > .order_addr_li > span > input {
+  display: inline-block;
+  vertical-align: -1px;
+}
+
+.address_info_content_ul > .order_addr_li > span > label {
+  display: inline-block;
+  color: #1986e6;
+  font-size: 12px;
+}
+
+.address_info_content_ul > .order_addr_li > .order_addr_li_sp2 {
+  overflow: hidden;
+}
+
+.address_info_content_ul > .order_addr_li > .order_addr_li_sp2 > input {
+  float: left;
+  margin-right: 7px;
+}
+
+.address_info_content_ul > .order_addr_li > .order_addr_li_sp3 {
+  padding: 0;
+}
+
+.address_info_content_ul > .order_addr_li_page2 {
+  height: 60px;
+}
+
+.order_addr_search_btn {
+  width: 120px;
+  height: 20px;
+  margin: 0 0 0 5px;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  color: #454952;
+  font-family: 'Nanum Gothic';
+  font-size: 13px;
+  cursor: pointer;
+  outline: 0;
+  vertical-align: -1px;
+}
+
+.address_info_content_ul > .delivery_msg_li > input {
+  width: 505px;
+}
+
+.address_info_content_ul > .memberInfoSave_li {
+  padding-top: 0;
+}
+
+.address_info_content_ul > .memberInfoSave_li > input {
+  display: inline-block;
+  vertical-align: -1px;
+}
+
+.address_info_content_ul > .memberInfoSave_li > label {
+  display: inline-block;
+  line-height: 30px;
+}
+
+.address_info_content_ul > .memberInfoSave_li i {
+  font-style: normal;
+  font-size: 12px;
+  color: gray;
+  line-height: 30px;
+}
+
+/*======================  결제 정보 =======================*/
+.order_pay_info_div {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.order_pay_info_p {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: "";
+  font-size: 15px;
+  color: #454952;
+  border-bottom: 1px solid #454952;
+}
+
+.order_pay_info_title_ul {
+  width: 200px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.order_pay_info_title_ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+  line-height: 30px;
+}
+
+.order_pay_info_title_ul > .order_pay_info_title_li3 {
+  height: 40px;
+}
+
+.order_pay_info_title_ul > .order_pay_info_title_li5 {
+  height: 50px;
+}
+
+.order_pay_info_content_ul {
+  width: 800px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.order_pay_info_content_ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0 0 0 10px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.order_pay_info_content_ul > .order_pay_info_content_li3 {
+  height: 40px;
+}
+
+.order_pay_info_content_ul > .order_pay_info_content_li5 {
+  height: 50px;
+}
+
+.order_pay_info_content_ul input[type='text'] {
+  width: 150px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  text-indent: 5px;
+  outline: 0;
+}
+
+.order_pay_info_content_li1, .order_pay_info_content_li7 {
+  font-weight: bold;
+  color: black;
+  line-height: 30px;
+}
+
+.order_pay_info_content_li2 {
+  color: gray;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.order_pay_info_content_li3 > span {
+  position: relative;
+  height: 20px;
+  line-height: 20px;
+  text-indent: 15px;
+}
+
+.order_pay_info_content_li3 > span > i {
+  color: gray;
+  font-size: 12px;
+  font-style: normal;
+}
+
+.order_pay_info_content_li3 > span:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: url("../images/sale.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  top: 5px;
+}
+
+.order_pay_info_content_li3 > span:nth-of-type(2):before {
+  background: url("../images/mileage.png") no-repeat center;
+}
+
+.order_pay_info_content_li4 > .apply_coupon_btn {
+  width: 120px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  color: #454952;
+  font-family: 'Nanum Gothic';
+  font-size: 13px;
+  cursor: pointer;
+  outline: 0;
+  position: relative;
+  top: 5px;
+}
+
+.myMileage_lb {
+  height: 30px;
+  line-height: 30px;
+}
+
+.myMileage_lb > input {
+  display: inline-block;
+}
+
+.myMileage_lb > span {
+  display: inline-block;
+  color: #1986e6;
+  line-height: 30px;
+}
+
+.myMileage_sp2 {
+  height: 20px;
+  line-height: 15px;
+  font-size: 12px;
+  color: #1986e6;
+}
+
+.order_pay_info_content_li6 {
+  line-height: 30px;
+}
+
+.order_pay_info_content_li6 > input, .order_pay_info_content_li6 > label {
+  display: inline-block;
+}
+
+.depositCk {
+  vertical-align: -1px;
+  margin-left: 15px;
+}
+
+.deposit_save {
+  font-size: 12px;
+  color: #1986e6;
+}
+
+.order_pay_info_content_li7 {
+  font-size: 14px;
+}
+
+/*========================결제 수단 선택/결제======================*/
+.order_payment_div {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.order_payment_p {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: "";
+  font-size: 15px;
+  color: #454952;
+  border-bottom: 1px solid #454952;
+}
+
+.order_payment_ul {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.order_payment_ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.order_payment_ul > li:nth-of-type(1), .order_payment_ul > li:nth-of-type(4) {
+  background-color: #eee;
+}
+
+.order_payment_ul > li:nth-of-type(2) {
+  height: 50px;
+}
+
+.order_payment_ul > li:nth-of-type(3) {
+  height: 60px;
+}
+
+.order_payment_li1 {
+  line-height: 30px;
+  color: gray;
+}
+
+.order_payment_li1 > input, .order_payment_li1 > label {
+  display: inline-block;
+}
+
+.order_payment_li1 > input {
+  vertical-align: -1px;
+}
+
+.order_payment_li2 {
+  display: none;
+  color: gray;
+}
+
+.order_payment_li2 > span:nth-of-type(1) {
+  height: 30px;
+  line-height: 30px;
+}
+
+.order_payment_li2 > span:nth-of-type(1) > input, .order_payment_li2 > span:nth-of-type(1) > label {
+  display: inline-block;
+}
+
+.order_payment_li2 > span:nth-of-type(1) > input {
+  vertical-align: -1px;
+}
+
+.order_payment_li2 > span:nth-of-type(2) {
+  height: 20px;
+  font-size: 12px;
+}
+
+.order_payment_li3 {
+  display: none;
+}
+
+.order_payment_li3 > span {
+  height: 30px;
+  line-height: 30px;
+}
+
+.order_payment_li3 > span > input, .order_payment_li3 > span > label {
+  display: inline-block;
+}
+
+.order_payment_li3 input[type='text'] {
+  width: 150px;
+  height: 20px;
+  margin: 0 0 0 10px;
+  padding: 0;
+  border: 1px solid #ccc;
+  text-indent: 5px;
+  outline: 0;
+}
+
+.order_payment_li3 select {
+  width: 300px;
+  height: 20px;
+  margin: 0 0 0 10px;
+  padding: 0 0 0 5px;
+  border: 1px solid #ccc;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background: url("../images/select.svg") no-repeat 99% 50%;
+}
+
+.order_payment_li3 select::-ms-expand {
+  display: none;
+}
+
+.order_payment_li4 {
+  display: none;
+  line-height: 30px;
+}
+
+.order_payment_li4 > span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.order_payment_li4 > input {
+  vertical-align: -1px;
+  display: inline-block;
+}
+
+.order_payment_li4 > label {
+  display: inline-block;
+  color: gray;
+  margin-right: 5px;
+}
+
+.total_price_div {
+  width: 1000px;
+  height: 70px;
+  margin: 30px 0 0 0;
+  padding: 0;
+  border: 2px solid #ccc;
+  position: relative;
+  color: black;
+}
+
+.total_price_div_page2 {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.total_price_ul {
+  width: auto;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  margin-top: -15px;
+}
+
+.total_price_ul > li {
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 0 3px;
+  line-height: 30px;
+}
+
+.total_price_ul > li:nth-of-type(1) {
+  font-size: 14px;
+}
+
+.total_price_ul > li:nth-of-type(2) {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.total_price_ul > span:nth-of-type(3) {
+  font-size: 16px;
+}
+
+.payment_agree_div {
+  width: 100%;
+  height: 30px;
+  margin: 50px 0 0 0;
+  padding: 0;
+  border: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.payment_agree_div > label, .payment_agree_div > input {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.payment_agree_div > input {
+  vertical-align: -1px;
+  margin-right: 15px;
+  display: none;
+}
+
+.payment_agree_div i {
+  color: orangered;
+  font-style: normal;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.paymentAg_lb:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background: url("../images/radio_button_orange-24px.svg") no-repeat center;
+  width: 23px;
+  height: 22px;
+  top: 4px;
+  left: -23px;
+  display: block;
+}
+
+.paymentAg_lb:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: url("../images/check_circle-24px.svg") no-repeat center;
+  background-size: cover;
+  left: -23px;
+  top: 3px;
+  display: none;
+}
+
+.ordercheck:checked + .paymentAg_lb:before {
+  display: block;
+}
+
+.payment_agree_btn_div {
+  width: 100%;
+  height: 50px;
+  margin: 10px 0 50px 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+}
+
+.payment_agree_btn {
+  width: 300px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: #333;
+  color: white;
+  font-family: 'Nanum Gothic';
+  font-size: 13px;
+  cursor: pointer;
+  outline: 0;
+}
+/*# sourceMappingURL=buy.css.map */

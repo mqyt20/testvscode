@@ -1,0 +1,39 @@
+<?php
+    $date = date("YmdHis");
+?>  
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE-Edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+    user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>LOGIN</title>
+<script src="../js/jquery.js?v=3"></script>
+<script src="../js/menu.js?v=8"></script>
+<script src="../js/filter.js"></script>
+<script src="../js/search.js?v=<?php echo $date?>"></script>
+<link rel="short icon" href="./banner/favicon.ico">    
+<link rel="stylesheet" type="text/css" href="./css/main.css?v=1">
+<link rel="stylesheet" type="text/css" href="./css/shopmain.css?v=<?php echo $date?>">
+<link rel="stylesheet" type="text/css" href="./css/login.css?v=<?php echo $date?>">
+</head>
+<body>
+   <!--상단 배너-->
+   <header class="headercss" id="header">
+    <?php include "topbanner.html"; ?>
+  </header>
+   <!--쇼핑몰 메뉴-->
+   <nav class="navcss">
+    <?php include "menu.html"; ?>
+  </nav> 
+  <!--로그인 영역-->
+  <section class="login_section">
+    <?php include "member_login.html"; ?>
+  </section>
+     <!-- 카피라이터-->
+  <footer class="footercss">
+    <?php include "footer.html"; ?>
+  </footer>
+</body>    
+</html>

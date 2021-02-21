@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.out {
+  width: 500px;
+  height: 500px;
+  border: 2px solid gray;
+  border-radius: 250px 250px 250px 250px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.out:hover .drop {
+  top: 442px;
+  -webkit-transform: rotate(1080deg);
+          transform: rotate(1080deg);
+}
+
+.drop {
+  width: 50px;
+  height: 50px;
+  border-radius: 7px 25px 7px 25px;
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  background-color: #f1ee23;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+}
+
+.drop > span {
+  width: 2px;
+  height: 2px;
+  position: absolute;
+  border-radius: 1px 1px 1px 1px;
+  background-color: rgba(75, 66, 66, 0.5);
+}
+
+.dot0 {
+  left: 5px;
+  top: 5px;
+}
+
+.dot1 {
+  left: 33px;
+  top: 33px;
+}
+
+.dot2 {
+  left: 12px;
+  top: 22px;
+}
+
+.dot3 {
+  left: 23px;
+  top: 12px;
+}
+
+.dot4 {
+  left: 36px;
+  top: 17px;
+}
+
+.dot5 {
+  left: 23px;
+  top: 37px;
+}
+
+.div1 {
+  width: 150px;
+  height: 150px;
+  background-color: #00aa99;
+  position: absolute;
+}
+
+.div2 {
+  width: 150px;
+  height: 150px;
+  background-color: #2b3f83;
+  position: absolute;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+
+.div2:hover {
+  -webkit-transform: translate(20px, 20px);
+          transform: translate(20px, 20px);
+}
+/*# sourceMappingURL=index16.css.map */

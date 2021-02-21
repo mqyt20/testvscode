@@ -1,0 +1,41 @@
+@charset "utf-8";
+@import './index14_1.scss';
+//scss기본 문법 또는 엔진을 모아서 적용 후 import를 이용하여 코드를 단순화
+.radios{
+    width:220px;
+    height:40px;
+    margin:20px;
+    &>label{
+        margin:0px 0px 0px 3px;
+        display:inline-block;
+        width:70px;
+        height:40px;
+        line-height: 40px;
+        font-size:12px; 
+    }
+}
+/*
+라디오 버튼을 꾸미기 위해 before, after사용하여 
+position으로 기존 라디오 버튼을 가림
+:checked선택자를 이용하여 원래의 라디오 박스 체크여부에 따라 css효과 적용*/
+.radios>input{
+     position: relative;
+    &:before{
+        @include  radiosmix;
+        position:absolute;
+        top:-3px;
+        left:-3px;
+    }
+    &:after{
+        @include radiosmix2;
+        position:absolute;
+        top:2px;
+        left:2px;
+    }
+
+}
+.radios>input:checked{
+    &:after{
+        background-color:pink;
+    }
+}

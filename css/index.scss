@@ -1,0 +1,510 @@
+@charset "UTF-8";
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/*font-family: 'Noto Sans KR', sans-serif;  font-weight:100,300,400,500,700,900*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+/*font-family: 'Nanum Gothic',   font-weight:400,700,800 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+/*font-family: 'Nanum Pen Script', cursive;  font-weight:400*/
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100;300;400;500;600;700;800;900&display=swap');
+/*font-family: 'Big Shoulders Stencil Display', cursive;  font-weight:100~900(200제외)*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+/*font-family: 'Open Sans', sans-serif;  font-weight: 300,400,600,700,800*/
+@import "basic";
+*{
+    box-sizing: border-box;
+}
+html, body, div, span, label,
+header, section, aside, footer, nav, 
+video,table, tr, td, th{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    font:inherit;
+}
+header, section, aside, footer, nav, main, label, span{
+    display:block;
+}
+body{
+    line-height:1;
+    -webkit-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    text-size-adjust:none;
+}
+ol, ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+    color:black;
+}
+p{
+    margin:0;
+    padding:0;
+    word-break: break-all;
+}
+legend{
+    position:absolute;
+    margin:0;
+    padding:0;
+    font-size: 0;
+    line-height: 0;
+    text-indent:-9999px;
+    overflow:hidden;
+}
+img{
+    width:100%;
+    height:auto;
+    object-fit: cover;
+}
+h1, h2, h3, h4, h5, h6, form, fieldset, img{
+    border:0;
+    margin:0;
+    padding:0;
+}
+pre{
+    overflow-x: scroll;
+    font-size: 1;
+}
+#header{
+    @include html5(300px);
+    background:url('../img/banner1.jpg') no-repeat center;
+    background-size: cover;
+}
+#nav{
+    @include html5(40px);
+    background-color:rgb(4, 4, 20);
+}
+#title{
+    @include html5(35px);
+    background-color:#eca60d;
+}
+main{
+    @include html5(auto);
+    background:url('../img/banner2.jpg') no-repeat center;
+    background-size: cover;
+}
+#skill{
+    @include html5(120px);
+}
+#portfolio{
+    height:auto;
+    padding:25px 0;
+}
+#myinfo{
+    @include html5(auto);
+    background: linear-gradient(to bottom, #333 20%, rgb(26, 25, 25));
+}
+#level{
+    @include html5(530px);
+    padding-top:30px 30px;
+    background: linear-gradient(to top, #ccc 60%,  rgb(26, 25, 25));
+    border-top:1px solid rgb(26, 25, 25);
+    border-bottom: 1px solid #ccc;
+}
+#contact{
+    @include html5(300px);
+    background: linear-gradient(to bottom, #ccc 30%,  #454545);
+    padding-bottom: 80px;
+}
+#footer{
+    @include html5(50px);
+    background-color:black;
+    &>label{
+      @include font('open',400, 15px, white);
+      height:50px;
+      text-align: center;
+      line-height: 50px;
+    }
+}
+.header_line{
+    @include div(100%, 30px, 0, 0, 0);
+    background-color:black;
+}
+.header_line_ul{
+    max-width:$view_width1;
+    min-height:30px;
+    @include font('open', 600, 14px, white);
+    @include flex(row, nowrap, flex-end, center, "");
+    margin:0 auto;
+    &>li{
+        @include position('re');
+        right:0;
+        min-height:30px;
+        display:inline-block;
+        padding: 0 10px 0 22px;
+        line-height: 30px;
+        word-spacing: 5px;
+        cursor: $cur;
+    }
+    &>li:before{
+        @include position('ab');
+        content:"";
+        width:16px;
+        height: 16px;
+        border-radius: 50%;
+        left:2px;
+        top:7px;
+    }
+}
+.blog_li:before{
+    background: url('../img/blog.png') no-repeat -3px -3px ;
+    background-size: 280%;
+}
+.fbook_li:before{
+    background: url('../img/facebook.jpg') no-repeat center center;
+    background-size: 150%;
+}
+.git_li:before{
+    background: url('../img/github.png') no-repeat center center;
+    background-size: 225%;
+
+}
+.header_title{
+    @include font('gothic', 700, 27px, white);
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
+    width:80%;
+    max-width:500px;
+    height:55px;
+    line-height: 55px;
+    text-align: center;
+    cursor: pointer;
+    margin:0 auto;
+    margin-top: 55px;
+    transition:0.25s ease-in-out;
+}
+.header_title:hover{
+    box-shadow: inset 250px 0 0 0 rgba(255,255,255,0.2),
+                inset -250px 0 0 0 rgba(255,255,255,0.2);
+    text-shadow: 6px 6px 5px rgba(0,0,0,0.9);
+}
+.header_domain{
+    @include font('open', 500, 16px, white);
+    @include flex(row, nowrap, center, center, "");
+    max-width:250px;
+    min-height:55px;
+    line-height:55px;
+    margin:0 auto;
+    transition: margin-top text-shadow 0.3s ease-in-out;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    cursor: $cur;
+}
+.header_domain:hover{
+    margin-top: -3px;
+    text-shadow: 1px 1px 4px rgb(250, 205, 7),
+    1px 1px 3px rgba(0, 0, 0, 0.8) ;            
+}
+.nav_ul{
+    @include div(80%, 40px, 0,0,0);
+    min-width:calc(100%/5.2);
+    margin:0 auto;
+    
+    &>li{
+        @include div(20%, 40px, 0,0,0);
+        @include font('noto', 400, 15px,white);
+        line-height: 40px;
+        min-width:50px;
+        float:left;
+        text-align: center;
+        line-height: 40px;
+        cursor: $cur;
+        transition: 0.34s ease;
+    }
+    &>li:hover, &>li:active, &>li:focus{
+        font-weight: bolder;  
+    }
+}
+.title_label{
+    @include font('open', 400, 14px,white);
+    @include div(80%, 35px, 0 auto, 0 , 0);
+    line-height:35px;
+    text-align:center;
+}
+.myskill{
+    max-width: $view_width1;
+    height:120px;
+    margin:0 auto;
+}
+.myskill_ol{
+    width:100%;
+    height:120px;
+    @include flex(row, nowrap, space-around, center, center);
+    &>li{
+        max-height:40px;
+        text-align: center;
+        line-height: 40px;
+        display: inline-block;
+        cursor:$cur;
+        background-color: black;
+        @include font('open', 600, 13px, white);
+        border-radius: 10px;
+    }
+    &>.li_all{
+        color:rgb(250, 205, 7);
+    }
+}
+
+
+
+@for $z from 1 to 14{
+    .myskill>ol>li:nth-of-type(#{$z}){
+        width:nth($arrays, $z);
+
+    }
+}
+.portfolio_css{
+    @include flex(row, wrap, space-around, flex-start,flex-start);
+    max-width: $view_width1;
+    margin:0 auto;
+    height:auto;
+    text-align:center;
+    overflow: hidden;
+}
+.p_span{
+    @include position('re');
+    @include div(190px, 270px, 0 auto, 5px, 1px solid white);
+    flex-shrink: 0;
+    margin-bottom: 7px;
+    background-color: rgba(0,0,0,0.5);
+    text-align:left;
+}
+.p_span_lb1{
+ @include font('noto', 500, 17px, white);
+ width:100%;
+ height:50px;
+ line-height:50px;
+ text-align: center;
+}
+.p_span_lb2{
+    @include font('noto', 300, 13px, white);
+    @include flex(row, wrap, center, flex-start, flex-start);
+    width:100%;
+    height:200px;
+    line-height:1.5;
+    letter-spacing: 1.2;
+    word-spacing:1.1;
+    text-indent:10px;
+   }
+   /*====================== 배너 영역 ==================*/
+   .info_div{
+    max-width: $view_width1;
+    margin:0 auto;
+    height:auto;
+    padding-top:20px;
+    text-align: center;
+   }
+   .info_title{
+       @include font('open',600,25px, white);
+       margin-bottom: 20px;
+   }
+   .info_banner{
+       @include div(1000px, 250px, 0 auto, 0, 1px solid white);
+       @include position('re');
+       overflow: hidden;
+       cursor:$cur;
+       box-sizing: content-box;
+   }
+   .info_banner_sp{
+    @include div(auto, 250px, 0, 0, 0);
+    @include position('ab');
+   }
+   .info_banner_in{
+    @include div(1000px, 250px, 0, 25px 15px, 0);
+    float:left;
+    overflow: hidden;
+   }
+
+   .left_banner_sp{
+    @include div(300px, 200px, 0 10px 0 0, 0, 0);
+    float:left;
+    &>img{
+        width:300px;
+        height:200px;
+        object-fit: cover;
+    }
+   }
+   .right_banner_ul{
+    @include div(660px, 200px, 0, 10px, 0);
+    float:left;
+    @include font('noto', 300, 13px,white);
+    &>li{
+        width:100%;
+        height:20px;
+        line-height: 20px;
+        margin-bottom:10px;
+        text-align: left;
+    }
+    &>.banner_title{
+        @include font('noto', 500, 15px,white);
+        height:25px;
+        line-height: 25px;
+    }
+    &>.banner_concept{
+        width:100%;
+        height:55px;
+        margin:0;
+    }
+   }
+   .info_btn{
+    @include div(1000px, 35px, 10px auto 0 auto, 0, 0);
+    text-align: center;
+   }
+   .info_btn>label{
+    @include div(30px, 30px, 0, 0, 0);
+    display:inline-block;
+    cursor:$cur;
+    border:2px solid white;
+    border-radius: 3px;
+   }
+   .leftBtn{
+    transform: rotate(180deg);
+}
+#left_banner_btn{
+    margin-right:50px;
+}
+ /*====================== 등급 그래프 및 API ==================*/
+ //좌측
+   .my_level{
+     max-width: $view_width1;
+     margin:0 auto;
+     vertical-align: middle;
+     margin-top:20px;
+   }
+   .my_levelol{
+       @include div(100%, 450px, 0, 0, 0);
+       background-color: aliceblue; 
+   }
+   .level_li{
+    @include div(50%, 450px, 0, 15px, 0);
+     background-color: #333;
+     float:left;
+   }
+   .level_ul{
+       @include div(100%, 100%, 0, 0, 0);
+       @include font('open', 400, 14px, white)
+   }
+   .level_ul>li{
+        @include div(100%, 30px, 5px 0 0 0, 0, 0);
+        line-height:30px;
+        &:first-of-type{
+            margin:0;
+        }
+        &>i{
+            font-style:normal;
+            font-weight: 700;
+            padding-left:10px;
+
+        }
+   }
+   @for $m from 6 through 12{
+    .level_ul>li:nth-of-type(#{$m}){
+        @include flex(row, nowrap, flex-start, center, "");
+        & i{
+            width:110px;
+            margin-right:10px
+        }
+    }
+   }
+   .graph{
+       @include div(320px, 25px, 0, 0, 2px solid white);
+       border-radius: 3px;
+       overflow: hidden;
+   }
+   .graph_in{
+       @include div(0, 28px, 0, 0, 0);
+       background: linear-gradient(to bottom,  #faad07,  rgb(255, 216, 110) 40%, #faad07);
+   }
+   //우측 지도 영역
+   .map_li{
+      width:50%;
+      background-color:paleturquoise;
+      height:450px;
+      float:left;
+      @include position('re');
+}
+.mapbtn{
+    @include font('noto', 600, 14,white);
+    @include position('ab');
+    z-index:10;
+    top:90%;
+    right:2%;
+}
+.mapbtn>label{
+    @include div(70px, 30px, 0, 0, 0);
+    display: inline-block;
+    cursor:$cur;
+    line-height: 30px;
+    text-align: center;
+}
+.btn1, .btn2{
+    background-color:gray;
+    @include font('noto', 13px, 300,white);
+}
+
+/*================== 컨택트 영역 ==================*/
+.contact_div{
+    max-width: $view_width1;
+    margin:0 auto;
+    padding:20px;
+    text-align: center;
+    background-color:#333;
+}
+.contact_div>span{
+    @include div(100%, 30px, 15px 0 0 0, 0, 0);
+    text-align: left;
+    &:nth-of-type(4){
+        height:200px;
+    }
+    &:nth-of-type(5){
+        height:40px;
+        text-align: center;
+    }
+    &>input{
+        @include div(400px, 30px, 0, 0, 0);
+        outline: 0;
+        text-indent: 10px;
+        @include font('open', 13px, 300, #ccc);
+    }
+}
+.per_textarea{
+    @include div(700px, 200px, 0, 15px, 0);
+    @include font('open', 13px, 300, #ccc);
+    overflow-y: auto;
+}
+.contactBtn{
+    @include div(150px, 40px, 0, 0, 1px solid #eee);
+    @include font('open', 14px, 700,#eee);
+    background-color: rgba(255,255,255,0);
+    cursor:$cur;
+}
+.toTop{
+    position:fixed; 
+    color:white; 
+    @include div(45px, 45px, 0, 0, 2px solid white);
+    @include font('open', 12, 800, white);
+    background-color: rgba(233, 54, 164, 0.9);
+    border-radius: 50%;
+    z-index:100;
+    right:0;
+    top:65%;
+    text-align:center;
+    line-height: 42px;
+    cursor:$cur;
+
+}
+
+/*========================= Responsive =======================*/
+.left_skill, .right_skill{ display:none;}
+.mHeader{display:none; }
+
+@include pc1;
+@include pc2;
+@include tab1;
+@include tab2;
+@include mob1;
+@include mob2;
+

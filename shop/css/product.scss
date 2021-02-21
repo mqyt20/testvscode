@@ -1,0 +1,382 @@
+@charset "utf-8";
+/*서브페이지 기본 세팅*/
+/* 폰트 */
+/*font-family: 'Noto Sans KR', sans-serif;  font-weight:100,300,400,500,700,900*/
+/*font-family: 'Nanum Gothic',   font-weight:400,700,800 */
+/*font-family: 'Nanum Pen Script', cursive;  font-weight:400*/
+/*font-family: 'Big Shoulders Stencil Display', cursive;  font-weight:100~900(200제외)*/
+/*font-family: 'Open Sans', sans-serif;  font-weight: 300,400,600,700,800*/
+@mixin font($family,$fweight,$fsize,$fcolor){
+    @if($family=="noto"){
+        font-family: 'Noto Sans KR', sans-serif;
+    }@else if($family=="gothic"){
+        font-family: 'Nanum Gothic'
+    }@else if($family=="pen"){
+        font-family: 'Nanum Pen Script';
+    }@else if($family=="big"){
+        font-family: 'Big Shoulders Stencil Display', cursive;
+    }@else if($family=="open"){
+        font-family: 'Open Sans', sans-serif;
+    }
+    font-weight:$fweight;
+    font-size:$fsize+px;
+    color:$fcolor;
+}
+@mixin subpage{
+    height:auto;
+    @include font('noto',400,13,rgb(69,73,82));
+}
+@mixin flex($direction,$wrap,$just,$items,$content){
+    display:flex;
+    flex-flow:$direction $wrap;
+    justify-content: $just;
+    align-items: $items;
+    align-content: $content;
+}
+@mixin div($div_width, $div_height, $div_margin, $div_padding, $div_border){
+    width:$div_width;
+    height:$div_height;
+    @if($div_margin=="auto"){
+        margin:0 auto;
+    }@else{
+        margin:$div_margin;
+    }
+    padding:$div_padding;
+    border:$div_border;
+}
+@mixin position($ps){
+    @if($ps=="re"){
+        position:relative;
+    }@else if($ps=="ab"){
+        position:absolute;
+    }@else if($ps=="fi"){
+        position:fixed;
+    }
+}
+@mixin bg($ap,$bgcolor,$bgurl,$img-position,$img-size){
+    @if($ap==0){
+        background-color:rgba($bgcolor);
+    }@else if($ap==1){
+        background-color: $bgcolor;
+    }@else if($ap==2){
+        background-image:url($bgurl);
+        background-repeat: no-repeat;
+        background-position:$img-position;
+        background-size:$img-size;
+    }
+}
+@mixin btn($btnCol){
+    background-color: $btnCol;
+    font-family: 'Nanum Gothic';
+    font-size: 13px;
+    cursor:pointer;
+    outline:0;
+}
+@mixin input($inw,$inh,$inline,$linecol,$indent){
+  width:$inw;
+  height:$inh+'px';
+  border:solid $inline+'px' $linecol;
+  outline:0;
+  text-indent:$indent+px;
+}
+/*=======상품 상세 설명 페이지 시작*/
+.section_subpage{
+    @include subpage;
+    margin-top:50px;
+}
+.pdetail_div{
+    @include div(1100px, 'auto', 0 auto, 20px ,0);
+    @include flex(row,nowrap,space-around,"","");
+}
+//좌측 상단 이미지 영역
+.pdetail_div_left{
+    @include div(500px, 'auto', 0, 0 ,0);
+}
+.bigPic_span{
+    @include div(100%, 500px, 0, 0 ,0);
+    overflow: hidden;
+    &>img{
+        width:500px;
+        height:500px;
+        object-fit: contain;
+    }
+} 
+.smallPic_span{
+    @include div(100%, 70px, 0, 0 ,0);
+    @include position('re');
+    margin-top:30px;
+    &>label{
+        @include div(10px, 100px, 0, 0 ,0);
+        @include position('ab');
+        line-height:100px;
+        cursor:pointer;
+        z-index:5;
+        &>img{
+           width:100%;
+           vertical-align: middle;
+        }
+    }
+    &>.rightSmallBtn{
+        right:0;
+    }
+    &>.smallPics_label{
+        @include div(460px, 100px, 0, 0 ,0);
+        @include position('re');
+        overflow: hidden;
+        top:0;
+        left:20px;
+        &>.smallPics_ul{
+            @include div(100%, 100px, 0, 0 ,0);
+            @include flex(row, nowrap, space-between,"" , "");
+            &>li{
+                @include div(100px, 100px, 0, 0 ,0);
+                background-color: #ccc;
+                margin-left:-3px;
+                margin-right:8px;
+                flex-shrink: 0;
+                overflow: hidden;
+            }
+            & img{
+                width:100%;
+                height:100px;
+                object-fit: cover;
+            }
+        }
+    }
+
+}   
+//우측 상단 상품 정보 영역
+.pdetail_div_right{
+    @include div(470px, 'auto', 0, 0 ,0);
+}
+.pdetail_title_span{
+    @include div(100%, 40px, 0, 0 ,0);
+    @include flex(row, nowrap, space-between,"" , "");
+    border-bottom:2px solid #ccc;
+    &>.pdetail_title{
+        @include font('gothic',700, 17,rgb(69,73,82));
+        line-height:40px;
+        word-spacing: 1.2;
+    }
+    &>.pd_share_btn{
+        @include div(60px, 25px, 0 0 0 10px, 0 ,1px solid #ccc);
+        @include btn(#eee);
+        color:rgb(69,73,82);
+        vertical-align: -3px;
+        &>em{
+            font-style: normal;
+            &:after{
+                content:"^";
+                display:inline-block;
+                margin-left:3px;
+                transform: rotate(180deg);
+            }
+        }
+    }    
+}
+.pdetail_content_span{
+    @include div(100%, auto, 10px 0 0 0, 0 ,0);
+    overflow:hidden;
+}
+.pdetail_title_ul{
+    @include div(80px, auto, 0, 0 0 20px 0 ,0);
+    float:left;
+    border-bottom:1px solid #ccc;
+    &>li{
+        @include div(100%, 25px, 20px 0 0 0, 0 0 0 5px ,0);
+        @include font('noto',500,13,rgb(69,73,82));
+        line-height: 25px;
+    }
+
+    &>li:nth-of-type(5){
+        height:55px;
+    }
+}
+.pdetail_content_ul{
+    @include div(390px, auto, 0, 0 0 20px 0 ,0);
+    float:left;
+    border-bottom:1px solid #ccc;
+    &>li{
+        @include div(100%, 25px, 20px 0 0 0, 0 0 0 15px ,0);
+        @include flex(row,wrap,flex-start,center,center);
+        font-weight: 300;
+    }
+    &>li:nth-of-type(2), &>li:nth-of-type(3){
+        font-weight: bolder;
+    }
+    &>.p_delivery_info_li{
+        height:55px;
+        &>label{
+            width:100%;
+            line-height: 25px;
+            &:nth-of-type(2){
+                margin-top:5px;
+            }
+        }
+    }
+}
+.p_delivery_btn{
+    @include div(90px, 25px, 0 0 0 10px, 0 ,1px solid #ccc);
+    @include btn(#eee);
+    color:rgb(69,73,82);
+    vertical-align:-1px;
+    &>em{
+        font-style: normal;
+        &:after{
+            content:"^";
+            display:inline-block;
+            margin-left:3px;
+            transform: rotate(180deg);
+        }
+    }
+}
+.optionSelec_label{
+    @include div(100%, 120px, 0, 25px 0px ,0);
+    overflow: hidden;
+    &>div{
+        float:left;
+    }
+    &>div:nth-of-type(1){
+        @include div(80px, 25px, 0, 0 0 0 5px ,0);
+        @include font('noto',500,13,rgb(69,73,82));
+        float:left;
+        line-height:25px;
+    }
+    &>div:nth-of-type(2){
+        @include div(370px, 25px, 0, 0 ,0);
+        float:left;
+        &>select{
+          @include div(250px, 25px, 0, 0 0 0 5px ,1px solid #ccc);
+           background: url('../images/select.svg') no-repeat 99% 50%;
+           outline:0;
+           appearance: none;
+            &::-ms-expand{
+                display:none;
+           }
+        }
+    }
+    &>div:nth-of-type(3){
+        @include div(80px, 25px, 20px 0 0 0, 0 0 0 5px ,0);
+        @include font('noto',500,13,rgb(69,73,82));
+        float:left;
+        line-height:25px;
+    }
+    &>div:nth-of-type(4){
+        @include div(370px, 25px, 0, 0 ,0);
+        float:left;
+        &>select{
+          @include div(250px, 25px, 20px 0 0 0, 0 0 0 5px ,1px solid #ccc);
+           background: url('../images/select.svg') no-repeat 99% 50%;
+           outline:0;
+           appearance: none;
+            &::-ms-expand{
+                display:none;
+           }
+        }
+    }
+}
+//총 결제 금액
+.final_price_result{
+    @include div(100%, 60px, 0, 10px 0 0 0, 0);
+    line-height: 60px;
+    border-top: 1px solid #ccc;;
+    &>div{
+        float:left;
+    }
+    &>div:nth-of-type(1){
+        @include div(80px, 60px, 0, 0 0 0 5px ,0);
+        @include font('noto', 500, 14,rgb(69,73,82));
+        margin-right:20px;
+    }
+    &>div:nth-of-type(2){
+        @include div(370px, 60px, 0, 0 ,0);
+        float:left;
+        @include font("noto", 900, 18, rgb(14, 46, 119));
+    }
+
+}
+//버튼 영역 
+.pdetail_button_span{
+    @include div(100%, 55px, 0, 20px 0px 10px,0);
+    @include flex(row,nowrap,space-between,"","");
+    &>button{
+        @include div(130px, 55px, 0, 0 ,0);
+        @include btn(#eee);
+        color:rgb(69,73,82);
+        font-weight: bolder;
+    }
+    &>.buy_btn{
+        @include div(150px, 55px, 0, 0 ,0);
+        @include btn(rgb(69,73,82));
+        color:white;
+    }
+}
+//상세 설명 탭 영역
+.product_dtc{
+    @include div(1100px, auto, 'auto', 0 ,0);
+    margin-top:120px;
+}
+.product_dtc_tabUl{
+    @include div(1100px, 40px, 0,0,0);
+    &>li{
+        @include div(25%, 40px, 0,0,0);
+        border-top:1px solid #ccc;
+        border-right:1px solid #ccc;
+        border-bottom:1px solid #454952;
+        text-align: center;
+        line-height: 40px;
+        float:left;
+        cursor: pointer;
+    }
+    &>li:first-of-type{
+        border-left:1px solid #ccc;
+    }
+}
+$k:0;
+@for $tabIndex from(1) through(4){
+    .product_dtc_tabUl:nth-of-type(#{$tabIndex}){
+        @if($k>0){
+             &>li:nth-child(#{$k}){
+                border-right:none;
+            }
+        }
+        &>li:nth-child(#{$tabIndex}){
+            border:1px solid #454952;
+            border-bottom: none;
+            background:linear-gradient( to bottom,#eee , white);
+        }
+    }
+    $k:$k+1;
+}
+.product_dtc_content{
+    @include div(1100px, auto, 0, 30px, 0);
+    font-family: 'Open Sans', sans-serif;
+    line-height:25px;
+    & img{
+        margin-left:10%;
+        margin-right:10%;
+    }
+}
+.pDetail_btn_label{
+    @include div(100%, 35px, 30px 0 0 0, 0, 0 );
+    text-align: right;
+}
+.review_show_Btn{
+    @include div(120px, 35px, 0, 0, 1px solid #454952);
+    @include btn(rgba(0,0,0,0));
+    color:#454952;
+    margin-right:10px;
+}
+.review_write_Btn{
+    @include div(120px, 35px, 0,0,0);
+    @include btn(#454952);
+    color:white;
+}
+.pDetail_content_label{
+    @include div(100%, 100px, 30px 0, 0, 1px solid #ccc );
+    text-align: center;
+    line-height: 100px;
+    border-left: none;
+    border-right: none;
+    color:#ccc;
+}

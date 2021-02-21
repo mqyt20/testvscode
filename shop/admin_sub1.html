@@ -1,0 +1,43 @@
+<div id="subpage" :class="s1">
+    <!--신규 회원 리스트 -->
+    <aside :class="s2">
+        <label :class="s3">{{part_1}}</label>
+        <div :class="s4">
+            <chart-view></chart-view>
+            <!--신규회원 리스트 출력-->
+            <chart-view_on v-if="member_data && mview==1" 
+              v-for="newlist in members"
+              v-bind:idx="newlist.midx"
+              v-bind:mname="newlist.mnm"
+              v-bind:mid="newlist.mid"
+              v-bind:memail="newlist.memail"
+              v-bind:mtel="newlist.mtel"
+              v-bind:maddr="newlist.maddr"
+              v-bind:maddr2="newlist.maddr2"
+              v-bind:maddr3="newlist.maddr3"
+             ></chart-view_on>
+            <chart-view_off v-if="mview==2"></chart-view_off>
+        </div>
+    </aside>
+    <!--질문 내역 리스트-->
+    <aside :class="s2">
+        <label :class="s3">{{part_2}}</label>
+        <div :class="s4">
+            <chart-view2></chart-view2>
+             <!--질문 리스트 출력-->
+             <chart-view_on2 v-if="board_data && bview==1" v-for="qalist in qas"
+             v-bind:gidx="qalist.qidx"
+             v-bind:gsubject="qalist.qa_subject"
+             v-bind:gcate="qalist.qa_part"
+             v-bind:gname="qalist.qa_writer"
+             v-bind:gfile="qalist.qa_file1" 
+             v-bind:gfile="qalist.qa_file2" 
+             v-bind:gdate="qalist.qa_indate"
+             ></chart-view_on2>
+             <chart-view_off2 v-if="bview==2"></chart-view_off2>
+        </div>
+    </aside>
+</div>
+<script>
+const _0xcf7e=['maddr3','\x20\x20\x20\x20<ol\x20class=\x22chart_ol\x22>\x20\x20\x20\x20\x20\x20\x20\x20<li>NO</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>고객명</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>아이디</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>이메일</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>연락처</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>주\x20소</li>\x20\x20\x20\x20</ol>','subview','send','10141zBeUqO','1pdFXjM','65JaIDxX','12537ZMIdEQ','memail','1051543UGMmjy','gfile','parse','1uykDvu','aside_css','part_css','228663XMUneg','\x20\x20\x20\x20<ol\x20class=\x22chart_ol\x20chart_data\x22>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{idx}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{mname}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{mid}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{memail}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{mtel}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li\x20class=\x22text_left\x22>{{maddr}}\x20{{maddr2}}\x20{{maddr3}}</li>\x20\x20\x20\x20</ol>','readyState','1030016UyGJfW','1029903WhEZWF','680807AtVGCv','status','<ol\x20class=\x27chart_ol2\x27><li\x20class=\x27nofile\x27>질문\x20리스트가\x20없습니다.</li></ol>','component','./admin_qa.json','gsubject','gcate','response','<ol\x20class=\x27chart_ol\x27><li\x20class=\x27nofile\x27>오늘\x20등록된\x20가입자는\x20없습니다.</li></ol>','\x20\x20\x20\x20<ol\x20class=\x22chart_ol2\x22>\x20\x20\x20\x20\x20\x20\x20\x20<li>NO</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>제목</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>카테고리</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>작성자</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>첨부파일</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>등록일</li>\x20\x20\x20\x20</ol>','\x20\x20\x20\x20<ol\x20class=\x22chart_ol2\x20chart_data\x22>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{\x20gidx\x20}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li\x20class=\x22text_left\x22>{{\x20gsubject\x20}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{\x20gcate\x20}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{\x20gname\x20}}</li>\x20\x20\x20\x20\x20\x20\x20\x20<li><img\x20v-if=\x22gfile\x22\x20v-bind:src=\x22gfile\x22><img\x20v-if=\x22gfile2\x22\x20v-bind:src=\x22gfile2\x22></li>\x20\x20\x20\x20\x20\x20\x20\x20<li>{{\x20gdate\x20}}</li>\x20\x20\x20\x20</ol>','get','신규회원\x20리스트','DONE','onreadystatechange','idx','gfile2','mid','5bbPzCq','질문내역\x20리스트','open','chart-view_on','mname','chart-view_on2','maddr2','log'];const _0x3700=function(_0x29dc17,_0x38db54){_0x29dc17=_0x29dc17-0xa4;let _0xcf7e2f=_0xcf7e[_0x29dc17];return _0xcf7e2f;};const _0x407505=_0x3700;(function(_0x10caef,_0x15c71c){const _0x10dfc5=_0x3700;while(!![]){try{const _0x57a1a9=-parseInt(_0x10dfc5(0xcf))*parseInt(_0x10dfc5(0xd0))+parseInt(_0x10dfc5(0xad))+parseInt(_0x10dfc5(0xce))*parseInt(_0x10dfc5(0xae))+parseInt(_0x10dfc5(0xaf))+-parseInt(_0x10dfc5(0xaa))+parseInt(_0x10dfc5(0xc1))*-parseInt(_0x10dfc5(0xcd))+-parseInt(_0x10dfc5(0xa7))*parseInt(_0x10dfc5(0xa4));if(_0x57a1a9===_0x15c71c)break;else _0x10caef['push'](_0x10caef['shift']());}catch(_0x2f4b9b){_0x10caef['push'](_0x10caef['shift']());}}}(_0xcf7e,0x913de));let members_data;function memberAjax(){const _0x1f26fc=_0x3700;let _0xffcc2c=new XMLHttpRequest();_0xffcc2c['onreadystatechange']=function(){const _0x391e88=_0x3700;_0xffcc2c[_0x391e88(0xac)]==XMLHttpRequest[_0x391e88(0xbc)]&&_0xffcc2c[_0x391e88(0xb0)]==0xc8&&(members_data=JSON[_0x391e88(0xa6)](this[_0x391e88(0xb6)]));},_0xffcc2c[_0x1f26fc(0xc3)](_0x1f26fc(0xba),'./members.json',![]),_0xffcc2c[_0x1f26fc(0xcc)]();}memberAjax();let qas_data;function qaAjax(){const _0x398b92=_0x3700;let _0xccd850=new XMLHttpRequest();_0xccd850[_0x398b92(0xbd)]=function(){const _0x1d5a47=_0x398b92;_0xccd850[_0x1d5a47(0xac)]==XMLHttpRequest[_0x1d5a47(0xbc)]&&_0xccd850[_0x1d5a47(0xb0)]==0xc8&&(qas_data=JSON[_0x1d5a47(0xa6)](this['response']));},_0xccd850[_0x398b92(0xc3)]('get',_0x398b92(0xb3),![]),_0xccd850[_0x398b92(0xcc)]();}qaAjax(),console[_0x407505(0xc8)](qas_data);let ajax_member=0x1,ajax_qa=0x1,chart1={'template':_0x407505(0xca)};Vue[_0x407505(0xb2)](_0x407505(0xc4),{'template':_0x407505(0xab),'props':[_0x407505(0xbe),_0x407505(0xc5),_0x407505(0xc0),_0x407505(0xd1),'mtel','maddr',_0x407505(0xc7),_0x407505(0xc9)]});let chart1_no={'template':_0x407505(0xb7)},chart2={'template':_0x407505(0xb8)};Vue['component'](_0x407505(0xc6),{'template':_0x407505(0xb9),'props':['gidx',_0x407505(0xb4),_0x407505(0xb5),'gname',_0x407505(0xa5),_0x407505(0xbf),'gdate']});let chart2_no={'template':_0x407505(0xb1)},subs=new Vue({'el':'#subpage','data':{'s1':_0x407505(0xcb),'s2':_0x407505(0xa8),'s3':_0x407505(0xa9),'s4':'chart_css','part_1':_0x407505(0xbb),'part_2':_0x407505(0xc2),'member_data':!![],'board_data':!![],'mview':ajax_member,'bview':ajax_qa,'members':members_data,'qas':qas_data},'components':{'chart-view':chart1,'chart-view2':chart2,'chart-view_off':chart1_no,'chart-view_off2':chart2_no}});
+</script>

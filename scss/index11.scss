@@ -1,0 +1,41 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    line-height:1;
+    box-sizing: border-box;
+}
+*{@include base;}
+@mixin trans($time){
+    transition-duration:$time+s;
+    transition-timing-function:ease;
+    transition-property: all;
+
+}
+.box{
+    width:300px;
+    height:400px;
+    border:1px solid black;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.box>span{
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    position:relative;
+}
+.box:hover>span{
+    left:274px;
+}
+$i:0;
+$color:blue,navy, green, orange, pink;
+@while($i<5){
+    .c#{$i}{
+        background-color: nth($color, $i+1);
+        left:0;
+        @include trans($i+1);
+    }
+    $i:$i+1;
+}

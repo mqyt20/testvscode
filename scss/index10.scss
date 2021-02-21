@@ -1,0 +1,68 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    line-height: 1;
+    box-sizing: border-box;
+}
+*{@include base;}
+@mixin objectsize($w,$h,$code){
+    @if($code=='px'){
+        width:$w+px;
+        height:$h+px;
+    }@else if($code=="%"){
+        width:$w+%;
+        height:$h+px;
+    }
+}
+@mixin ani($l){
+    left:$l+px;
+    transform:skew(360deg, 45deg);
+    //top:200px
+}
+/*transform:2D(x,y)|3D(x,y,z)
+<2d>
+1.scale(scale, scaleX, scaleY),단위(0.5, 1, 2...)
+2.rotate(deg),rotateX, rotateY 예-transform:rotateX(245deg) rotateY(245deg);
+3.translate:px, %(대각선 방향으로 이동 가능)
+4.skew(deg), skewX, skewY 예- transform:skew(45deg, 45deg);
+*/
+$border:1px solid black;
+$color1:#bbffaa;
+$color2:#ccaa88;
+.divcss{
+    position:relative;
+    border:$border;
+    @include objectsize(100,300,'%');
+}
+#box{
+    position:absolute;
+    display:block;
+    background-color:$color2;
+    @include objectsize(50,50,'px');
+    left:0px;
+    top:0px;
+    transition-property:all;
+    transition-duration:5s;
+    transition-timing-function: linear; 
+    /*
+    ease:처음과 끝에만 속도가  느려짐,  linear:속도 동일
+    steps(횟수,  end):컷 형식으로 움직임
+    cubic-bezier:사용자가 직접 컨트롤(0속도가 빠름, 1:속도가 느림)
+    */
+}
+.btn{
+    @include objectsize(100,30,'px');
+    display:block;
+    text-align: center;
+    line-height: 30px;
+    border:$border;
+    cursor:pointer;
+    position:absolute;;
+    top:300px;
+}//+는 바로 다음 형제 요소 태그에 적용
+//~은 다음의 모든 형제 요소에 적용
+// 단 자손  또는 후손 선택자로 접근할 수 있음
+.btn:hover ~ .divcss>#box{
+    @include ani(500);
+}

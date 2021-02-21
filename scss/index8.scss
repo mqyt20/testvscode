@@ -1,0 +1,33 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    line-height:1;
+}
+@mixin colors($a,$b,$c){
+    width:$a+px;
+    height:$b+px;
+    background-color:$c;
+}
+body{
+    @include base;
+}
+.ck:checked ~.box{
+    @include colors(300,300,blue);
+}
+.box{
+    @include colors(50,50,yellow);
+    transition:height 2s linear 2s; 
+}
+.lbcss{
+    display:block;
+    @include colors(150,30,#eee);
+    border:1px solid black;
+    text-align:center;
+    line-height:25px; 
+    cursor:pointer;
+}
+.lbcss:active+.box{
+    @include colors(300,150,green);
+    transition:height 5s;
+}

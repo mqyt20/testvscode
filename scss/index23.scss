@@ -1,0 +1,114 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap');
+/*font-family: 'Noto Sans KR', sans-serif; font-weight:100;300;400;500*/
+$noto:'Noto Sans KR', sans-serif;
+$margin:0 auto;
+$cursor:pointer;
+$alignC:center;
+$colors:rgb(27, 182, 209), rgb(246, 252, 253), rgb(36, 32, 32);
+$border:1px solid black;
+/*
+@mixin
+1.font
+2.ul,ol(flex)로 생성(float:left, display:inline-block)
+3.image(background)
+4.flex
+5.@media
+6.span, label
+7.input,select,textarea
+8.transform,transition
+9.color,opacity
+*/
+@mixin base{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    line-height:1;
+}
+@mixin box($w,$h,$r){
+    @if($r=="px"){
+        width:$w+px;
+        height:$h+px;
+    }@else if($r=="%"){
+        width:(100/$w)+%;
+        height:$h+px;
+    }
+}
+@mixin flex($direction, $rap, $just,$items,$con){
+    display:flex;
+    flex-flow:$direction $rap;
+    justify-content: $just;
+    align-items: $items;
+    align-content: $con;
+
+}
+@mixin font($type,$size,$weight,$col){
+    @if($type="noto"){
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    font-size: $size+px;
+    font-weight: $weight;
+    color:$col;
+}
+
+//애니메이션
+
+@mixin transition($property,$duration,$timing){
+    transition:$property $duration+s $timing;
+}
+*{
+    @include base;
+}
+.header{
+    height:auto;
+}
+
+.divcss{
+    @include box(1200,40,'px');
+    @include font('noto', 15,'normal',rgb(246, 252, 253));
+    margin:$margin;
+}
+.ulcss{
+    @include box(1,40, '%');
+    @include flex(row,nowrap,flex-start, "","");
+    border:$border;
+    background-color: nth($colors,1);
+    list-style: none;
+    overflow: hidden;
+    &>li{
+        @include box(8,40, '%');
+        @include transition(all, 0.8, linear);
+        @include flex(row,nowrap,center,center,"");
+        cursor:$cursor;
+        text-align: $alignC;
+        line-height: 40px;
+        border-right:$border;
+        background-color: nth($colors,1);
+        font-size: 15px;
+
+        &:first-of-type{
+            border-right:$border;
+        }
+        &>span{
+            position:absolute;
+            @include transition(all, 0.8, linear);
+        }
+    }
+}
+.div_box{
+    width:200px;
+    height:200px;
+    background-color: gray;
+    color:white;
+    text-align: center;
+    position:relative;
+    @include transition(all, 0.8, linear);
+}
+.span_box{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+    position:absolute;
+    display:block;
+    @include transition(all, 0.8, linear);
+}

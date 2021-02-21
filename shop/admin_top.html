@@ -1,0 +1,16 @@
+<meta charset="utf-8">
+<div id="topmenu" v-bind:class="top_class">
+    <label v-bind:class="t1" v-bind:title="tmsg" v-on:click="main_page">ADMINISTRATOR</label>
+    <label v-bind:class="t2">
+        <ul class="t3">
+            <menus-area v-for="area,index in menu_list" v-bind:lis="area" 
+               v-bind:index="index" :class="t4" v-on:click=></menus-area>
+        </ul>
+    </label>
+</div>
+<div class="admin_logout_div">
+    <label class="admin_logout_lb">
+      <?php echo $admin_name;?>님 환영합니다! <a href="./admin_logout.php" style="color:white;">[로그아웃]</a>
+    </label>
+</div>
+<script src="../js/admin_top_secret.js?v=7"></script>

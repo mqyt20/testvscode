@@ -1,0 +1,198 @@
+@charset "utf-8";
+/*서브페이지 기본 세팅*/
+/* 폰트 */
+/*font-family: 'Noto Sans KR', sans-serif;  font-weight:100,300,400,500,700,900*/
+/*font-family: 'Nanum Gothic',   font-weight:400,700,800 */
+/*font-family: 'Nanum Pen Script', cursive;  font-weight:400*/
+/*font-family: 'Big Shoulders Stencil Display', cursive;  font-weight:100~900(200제외)*/
+/*font-family: 'Open Sans', sans-serif;  font-weight: 300,400,600,700,800*/
+@mixin font($family,$fweight,$fsize,$fcolor){
+    @if($family=="noto"){
+        font-family: 'Noto Sans KR', sans-serif;
+    }@else if($family=="gothic"){
+        font-family: 'Nanum Gothic'
+    }@else if($family=="pen"){
+        font-family: 'Nanum Pen Script';
+    }@else if($family=="big"){
+        font-family: 'Big Shoulders Stencil Display', cursive;
+    }@else if($family=="open"){
+        font-family: 'Open Sans', sans-serif;
+    }
+    font-weight:$fweight;
+    font-size:$fsize+px;
+    color:$fcolor;
+
+}
+@mixin subpage{
+    height:auto;
+    @include font('noto',400,14,rgb(69,73,82));
+}
+@mixin flex($flexpart,$direction,$just,$items,$wrap,$content){
+    display:flex;
+    flex-direction:$direction;
+    justify-content: $just;
+    align-items: $items;
+    @if($flexpart==1){
+        flex-wrap:$wrap;
+        align-content: $content;
+    }
+}
+@mixin div($div_width, $div_height, $div_margin, $div_padding, $div_border){
+    width:$div_width;
+    height:$div_height;
+    @if($div_margin=="auto"){
+        margin:0 auto;
+    }@else{
+        margin:$div_margin;
+    }
+    padding:$div_padding;
+    border:$div_border;
+}
+@mixin position($ps){
+    @if($ps=="re"){
+        position:relative;
+    }@else if($ps=="ab"){
+        position:absolute;
+    }@else if($ps=="fi"){
+        position:fixed;
+    }
+}
+@mixin bg($ap,$bgcolor,$bgurl){
+    @if($ap==0){
+        background-color:rgba($bgcolor);
+    }@else if($ap==1){
+        background-color: $bgcolor;
+    }@else if($ap==2){
+        background-image:url($bgurl);
+        background-repeat: no-repeat;
+        background-position:top center;
+        background-size:100%;
+    }
+
+}
+.section_subpage{
+  @include subpage;
+  margin-top:50px;
+
+} 
+.sub_div{
+    @include div(1100px, auto, auto, 0, 1px solid rgb(69,73,82));
+    @include position('re');
+    display:grid;
+    grid-template-rows: 120px 700px;
+    grid-template-columns: 100%;
+    $z:1;
+    @while($z<=2){
+        &>div:nth-of-type(#{$z}){
+            grid-row:$z;
+        }
+        $z:$z+1;
+    }
+} 
+/*2021 이벤트 타이틀*/
+.event_div1{
+    @include font('gothic', bold, 17, rgb(69,73,82));
+    @include flex(0, row, center, center, "", "");
+}
+/* 블랙 스크린 */
+.game_black_screen{
+    @include position('ab');
+    @include div(100%, 550px, 0, 0, none);
+    background-color: rgba(0,0,0,0.8);
+    z-index:50;
+    display:none;
+} 
+/* 게임 이미지 영역*/
+.event_div2{
+    @include bg(2, "", "../event/event_img.jpg");
+    @include position('re');
+}
+/*게임 횟수 표시 영역*/
+.number_css{
+    @include div(40px, 55px, 0, 0, none);
+    @include position('ab');
+    display:block;
+    left:50%;
+    margin-left:-20px;
+    z-index:5;
+    box-shadow:1px 1px 5px 1px rgba(255, 255, 255, 0.2) ;
+    overflow: hidden;
+    &>img{
+        @include div(40px, 55px, 0, 0, none);
+        object-fit:cover;
+    }
+}
+/*이벤트 참여 유의 사항(하단)*/
+.game_info{
+    @include div(1000px, 125px, 0, 0, none);
+    @include position('ab');
+    @include font('noto', 400, 13, "");
+    right:10px;
+    bottom:15px;
+    &>ul{
+        width:100%;
+        height:auto;
+        &>li{
+            @include div(1000px, 25px, 0, 0, none); 
+            text-align:right;
+            line-height:25px;
+            
+        }
+    }
+    &>ul>li:nth-of-type(3),&>ul>li:nth-of-type(5){
+        color:orangered;
+    }
+}
+/*틀린 그림 찾기 오른쪽 클릭 영역*/
+.game_check{
+    @include position('re');
+    width:550px;
+    height:550px;
+    left:50%;
+    top:10px;
+    cursor:pointer;
+}
+/* 틀린 그림 정답 좌표*/
+@mixin okpoint($p_part,$x,$y,$pwidth,$pheight){
+    @if($p_part=="left"){
+      left:$x+px;
+      top:$y+px;
+    }@else if($p_part=="right"){
+        right:$x+px;
+        top:$y+px;
+    }
+    width:$pwidth+px;
+    height:$pheight+px;
+    z-index:10;
+    cursor:pointer;
+  }
+.ok_game{
+    @include position('ab');
+    @include flex(0, row, center, center, "", "");
+    display:block;
+    color:chartreuse
+}
+.ok_game>img{
+    width:150%;
+}
+.ok_game:nth-of-type(1){
+    @include okpoint('right', 55, 10, 150, 150);
+}
+.ok_game:nth-of-type(2){
+    @include okpoint('right', 500, 290, 150, 150);
+}
+.ok_game:nth-of-type(3){
+    @include okpoint('right', 180, 390, 120, 120);
+}
+.ok_game:nth-of-type(4){
+    @include okpoint('right', 200,110,120,120);
+}
+.ok_game:nth-of-type(5){
+    @include okpoint('left', 490, 30, 160, 160);
+}
+.ok_game:nth-of-type(6){
+    @include okpoint('right', 250,420,120,120);
+}    
+.ok_game:nth-of-type(7){
+    @include okpoint('right', 20,160,120,120);
+}

@@ -1,0 +1,43 @@
+<script>
+  var _0x20c0=['focus','아이디를\x20입력하세요.','268786zkAYXT','490564yXvaOj','DONE','mpass','1217MMcnpz','508855PjGHiO','./id_search.html','send','993598hvlQju','&mpass=','value','463330LzMHKi','103JmUwsg','./index.html','log','POST','onreadystatechange','id_error','readyState','1dIQoBQ','response','1038076qOgehA','pass_error','href','환영합니다.\x20고객님,\x20정상적으로\x20접속되었습니다.','status','./pass_search.html','content-type','getElementById','open'];var _0x11f4=function(_0xcb8342,_0x4f8bcd){_0xcb8342=_0xcb8342-0xc7;var _0x20c0e0=_0x20c0[_0xcb8342];return _0x20c0e0;};(function(_0x13c68c,_0x2a676b){var _0x38cd58=_0x11f4;while(!![]){try{var _0x2f83e6=parseInt(_0x38cd58(0xe3))+parseInt(_0x38cd58(0xde))+-parseInt(_0x38cd58(0xca))*parseInt(_0x38cd58(0xe2))+parseInt(_0x38cd58(0xd3))*-parseInt(_0x38cd58(0xd1))+parseInt(_0x38cd58(0xdf))+-parseInt(_0x38cd58(0xc9))+parseInt(_0x38cd58(0xe6));if(_0x2f83e6===_0x2a676b)break;else _0x13c68c['push'](_0x13c68c['shift']());}catch(_0x13de55){_0x13c68c['push'](_0x13c68c['shift']());}}}(_0x20c0,0x9b0a6));function loginBtn(){var _0x790289=_0x11f4,_0x1f9951=document[_0x790289(0xda)]('mid'),_0x3ee261=document[_0x790289(0xda)](_0x790289(0xe1));if(_0x1f9951[_0x790289(0xc8)]=='')alert(_0x790289(0xdd)),_0x1f9951[_0x790289(0xdc)]();else{if(_0x3ee261['value']=='')alert('비밀번호를\x20입력하세요.'),_0x3ee261[_0x790289(0xdc)]();else{var _0x1812d3='mid='+_0x1f9951[_0x790289(0xc8)]+_0x790289(0xc7)+_0x3ee261[_0x790289(0xc8)];logAjax(_0x1812d3);}}}let userLogin;function logAjax(_0x36237f){var _0x4fadaa=_0x11f4;function _0x4f3137(){if(window['XMLHttpRequest'])return new XMLHttpRequest();}function _0x55b997(){var _0x247d0f=_0x11f4;if(userLogin[_0x247d0f(0xd0)]==XMLHttpRequest[_0x247d0f(0xe0)]&&userLogin[_0x247d0f(0xd7)]==0xc8){var _0x321875=this[_0x247d0f(0xd2)];if(_0x321875==_0x247d0f(0xcf))return alert('해당\x20아이디는\x20가입\x20회원이\x20아닙니다.'),![];else{if(_0x321875==_0x247d0f(0xd4))return alert('패스워드가\x20틀립니다.'),![];else{if(_0x321875=='ok')alert(_0x247d0f(0xd6)),location['href']=_0x247d0f(0xcb);else return console[_0x247d0f(0xcc)](_0x321875),![];}}}}userLogin=_0x4f3137(),userLogin[_0x4fadaa(0xce)]=_0x55b997,userLogin[_0x4fadaa(0xdb)](_0x4fadaa(0xcd),'./login_check.php',!![]),userLogin['setRequestHeader'](_0x4fadaa(0xd9),'application/x-www-form-urlencoded'),userLogin[_0x4fadaa(0xe5)](_0x36237f);}function toLoginPage(_0x30f0dd){var _0x490a25=_0x11f4,_0x55babf;switch(_0x30f0dd){case 0x1:_0x55babf='./agree.html';break;case 0x2:_0x55babf=_0x490a25(0xe4);break;case 0x3:_0x55babf=_0x490a25(0xd8);break;}location[_0x490a25(0xd5)]=_0x55babf;}
+  </script>
+<div class="login_div">
+    <div class="longin_title">
+        MEMBER LOGIN
+    </div>
+    <form id="member_login" name="member_login">
+    <div class="member">
+        <span class="member_input">
+            <input type="text" placeholder="id" id="mid">
+            <input type="password" placeholder="password" id="mpass">
+        </span>
+        <span class="member_logBtn">
+            <button type="button" onclick="loginBtn();">LOGIN</button>
+        </span>
+        <span class="auto_ck">
+            <input type="checkbox" id="idSave">
+            <label for="idSave">아이디 저장</label>
+        </span>
+        <span class="btn_area">
+          <button type="button" onclick="toLoginPage(1);">회원가입</button>
+          <button type="button" onclick="toLoginPage(2);">아이디 찾기</button>
+          <button type="button" onclick="toLoginPage(3);">비밀번호 찾기</button>
+        </span>
+    </div>
+    </form>
+    <form id="nonmember" name="nonmember">
+    <div class="nonmember">
+      <span class="nonmember_title">비회원 주문조회</span>
+       <span class="nonmember_input">
+          <input type="text" placeholder="주문자명" id="mname" name="non_name">
+          <input type="text" placeholder="주문번호" id="orderNum" name="non_number">
+       </span>
+       <span class="nonmember_order">
+          <button type="button" onclick="orderConfirm();">주문조회</button>
+       </span>
+       <span class="nonmember_guide">
+          <label>ⓘ 주문번호와 비밀번호를 잊으신 경우, 고객센터로 문의하여 주시기 바랍니다.</label>
+       </span>
+    </div>
+    </form>
+  </div> 

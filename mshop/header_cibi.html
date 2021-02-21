@@ -1,0 +1,47 @@
+<style>
+	.header_cibi_outline { width:360px; height:55px; position:fixed; top:25px; z-index:150;}
+	.c_cibidiv {width:100%; height:40px; padding:15px 0px; background-color: white;}
+	.c_cibidiv > ul {width:100%; height:40px; list-style:none; margin:0; padding:0;
+        display: flex; flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        align-content: center;
+    }
+	.c_mmenuli1 { height:30px;}
+	.c_menu {width:30px; height:30px; display: block; margin-left:10px;}
+    .c_menu > img { width: 30px; height: 30px; object-fit: cover;}
+	.c_search {width:30px; height:30px; display: block; margin-right:10px; }
+    .c_search > img {width:30px; height:30px; object-fit: cover;}
+	.c_mmenuli2 { height:30px;}
+    .c_mmenuli2 > img { width: 100%; height:30px; object-fit: fill; }
+	.c_searchdiv {width:360px; height:60px; background-color:#dbb098; display:none; position:absolute; z-index:750;}
+	.c_searchdiv>ul {width:100%; height:60px; list-style:none; margin:0; padding:0;}
+	.c_seachli1 {width:265px; height:50px; padding:10px 15px 0 15px; float:left;}
+	.c_seachli2 {width:50px; height:50px; padding:10px 15px 0 0; float:left;}
+	.c_searchtxt {width:265px; height:38px; border:0; background-color:white; text-indent:10px;}
+	#c_searchbtn {width:50px; height:40px; background-color:white; border:0;}
+</style>
+
+<div class="header_cibi_outline">
+	<div class="c_cibidiv">
+		<ul>
+			<li class="c_mmenuli1" id="ciSlide"><span id="c_menu" class="c_menu"><img src="img/mmenu.png"></span></li>
+			<li class="c_mmenuli2" onclick="goHome();"><img src="img/mlogo.png" class="c_mlogo"></li>
+			<li class="c_mmenuli1" id="ciSearch"><span class="c_search"><img src="img/msearch.png"></span></li>
+		</ul>
+    </div>
+    <form name="searchF">
+		<div class="c_searchdiv" id="c_searchdiv">
+			<ul>
+				<li class="c_seachli1">
+                <input type="text" name="search_name" id="c_searchtxt" class="c_searchtxt" placeholder="검색할 상품명을 입력하세요">
+                </li>
+				<li class="c_seachli2">
+                <button type="button" id="c_searchbtn">검색</button>
+                </li>
+			</ul>
+        </div>
+      </form>  
+</div>
+

@@ -1,0 +1,37 @@
+<?php
+    $date = date("YmdHis");
+?>  
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE-Edge, chrome=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>쇼핑몰 관리자 페이지</title>
+<script src="../js/vue.js"></script>
+<script src="../js/lodash.js"></script>
+<script src="../js/_baseOrderBy.js"></script>
+<script src="../js/isArray.js"></script>
+<script src="../js/orderby.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/admin.css?v=<?php echo $date?>">
+<script src="../js/admin_secret.js"></script> 
+</head>
+<body onload="page_load();">
+    <main id="admin_page" class="admin_page">
+      <form name="admin_f" enctype="application/x-www-form-urlencoded"  v-on:submit="adminLog" onsubmit="return false;">        
+        <div v-bind:class="manager">
+         <iph v-bind:class="h3css" v-text="subtitle"></iph>   
+         <ipfs v-bind:class="label_css">
+             <input type="text" name="admin_id" id="admin_id" v-model="admin_id" :class="user_input">
+         </ipfs>
+         <ipfs v-bind:class="label_css">
+            <input type="password" name="admin_pw" id="admin_pw" v-model="admin_pass" :class="user_input">
+         </ipfs>
+         <ipfs v-bind:class="label_css">
+            <button v-text="login_text" :class="user_btn" ></button>
+         </ipfs>
+        </div>
+      </form> 
+    </main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+@charset "utf-8";
+body{
+    margin:0; 
+    padding:0;
+    line-height:1;
+}
+$c1:red, blue, green, orange;
+
+.ulbox{
+    width:400px;
+    height:30px;
+    list-style: none;
+    margin:0;
+    padding:0;
+
+    &>li{
+        float:left;
+        width:100px;
+        height:30px;
+        cursor:pointer;
+    }
+}
+@for $a from 1 to 5{      //through 4| through:해당 숫자까지 적용, to:해당 숫자(-1) 이전까지 적용
+    .ulbox>li:nth-of-type(#{$a}){  //#{$a(변수명)}을 해야지만 노드 사용 시 변수가 적용됨
+        text-align: center;
+        line-height:30px;
+        border:1px solid black;
+        color:nth($c1,$a); //nth(); css전용 배열 문구이며 예시는 nth(배열변수,배열값)
+    }
+}
+$k:blue, orange, green, purple,pink;
+.sp{
+    width:250px;
+    height:25px;
+    display:block;
+    clear:both;
+    &>label{
+        width:25px;
+        height:25px;
+        display:inline-block;
+        text-align: center;
+        line-height: 25px;
+        color:white;;
+    }
+}
+
+@for $z from 1 through 5{
+    .sp>label:nth-child(#{$z}){
+        background-color:nth($k,$z);
+    }
+} 

@@ -1,0 +1,171 @@
+@charset "utf-8";
+
+@mixin base{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    line-height:1;
+}
+@mixin box($w,$h,$r){
+    @if($r=="px"){
+        width:$w+px;
+        height:$h+px;
+    }@else if($r=="%"){
+        width:(100/$w)+%;
+        height:$h+px;
+    }
+}
+@mixin flex($direction, $rap, $just,$items,$con){
+    display:flex;
+    flex-flow:$direction $rap;
+    justify-content: $just;
+    align-items: $items;
+    align-content: $con;
+
+}
+@mixin font($type,$size,$weight,$col){
+    @if($type="noto"){
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    font-size: $size+px;
+    font-weight: $weight;
+    color:$col;
+}
+
+@mixin transition($property,$duration,$timing){
+    transition:$property $duration+s $timing;
+}
+*{
+    @include base;
+}
+.box{
+    width: 300px;
+    height:auto;
+    border:1px solid black;
+    display:grid;
+    grid-template-rows: repeat(4,100px);
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+    "h1 h1"
+    "h2 ."  // "." 빈 공간을 의미함
+    "h2 h3"
+    "h4 h5";
+    
+}
+.label1{
+    grid-area:h1;
+    background-color: skyblue;
+    display:block;   //제외되면 IE에서 인식을 못함
+}
+.label2{
+    grid-area:h2;
+    background-color: yellow;
+    display:block;
+}
+.label3{
+    grid-area:h3;
+    background-color: rgb(146, 245, 179);
+    display:block;
+    display:block;
+}
+.label4{
+    grid-area:h4;
+    background-color:black;
+    display:block;
+}
+.label5{
+    grid-area:h5;
+    background-color: salmon;
+    display:block;
+}
+//응용문제
+.box2{
+    width:300px;
+    height:auto;
+    border:1px solid black;
+    display:grid;
+    grid-template-rows: repeat(3,100px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "a b b"
+    "c c c"
+    "d e f";
+}
+.box2>label, .box2>span{
+    display:block;
+}
+.box2>label:nth-of-type(1){
+    grid-area: a;
+    background-color: skyblue;
+}
+.box2>label:nth-of-type(2){
+    grid-area: b;
+    background-color: yellow;
+}
+.box2>label:nth-of-type(3){
+    grid-area: c;
+    background-color: greenyellow;
+}
+.box2>span:nth-of-type(1){
+    grid-area: d;
+    background-color:red;
+}
+.box2>span:nth-of-type(2){
+    grid-area: e;
+    background-color: navy;
+}
+.box2>span:nth-of-type(3){
+    grid-area: f;
+    background-color: black;
+}
+
+.product{
+   width:1000px;
+   height:auto;
+   border:1px solid black;
+   margin:0 auto;
+   display:grid;
+   grid-template-rows: repeat(2,150px);
+   grid-template-columns: repeat(3,1fr);
+   //gap:20px 10px; 단 gap는 IE에서 작동을 안함
+   /*row-gap:10px;
+   column-gap: 10px;*/
+   //grid-gap:10px;
+   grid-template-areas:  
+   "n1 n2 n3"
+   "n4 n5 ."; 
+   padding-left:25px;
+   padding-top:20px;
+
+}
+.product>label{
+    display:block;
+    border:1px solid gray;
+    width:300px;
+    height:120px;
+}
+.product>label:nth-of-type(1){
+    background-color: hotpink;
+    border-radius: 5px;
+    grid-area: n1;
+}
+.product>label:nth-of-type(2){
+    background-color: orange;
+    border-radius: 5px;
+    grid-area: n2;
+}
+.product>label:nth-of-type(3){
+    background-color: orangered;
+    border-radius: 5px;
+    grid-area: n3;
+}
+.product>label:nth-of-type(4){
+    background-color: lavender;
+    border-radius: 5px;
+    grid-area: n4;
+}
+.product>label:nth-of-type(5){
+    background-color: pink;
+    border-radius: 5px;
+    grid-area: n5;
+}

@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1px;
+  background-color: pink;
+}
+
+.box1 {
+  width: 100px;
+  height: 50px;
+  border: 1px solid blue;
+}
+
+.box2 {
+  width: 200px;
+  height: 250px;
+  background-color: red;
+}
+
+.out {
+  width: 380px;
+  height: 50px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.out > div:nth-of-type(1) {
+  width: 45px;
+  height: 45px;
+  background-color: blue;
+}
+
+.out > div:nth-of-type(2) {
+  width: 180px;
+  height: 45px;
+  background-color: yellow;
+}
+
+.out > div:nth-of-type(3) {
+  width: 45px;
+  height: 45px;
+  background-color: black;
+}
+/*# sourceMappingURL=index5.css.map */

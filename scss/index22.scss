@@ -1,0 +1,69 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    line-height:1;
+}
+*{@include base;}
+
+@mixin boxs{
+    .box2{
+        @content; //@mixin에서 @include 내용을 불러옴
+    }
+}
+@include boxs{
+    .box{
+        width:100px;
+        height:100px;
+        border:1px solid black;
+    }
+}
+
+$desktop-width:1100px;
+$tablet-width:1024px;
+$tablet-width2:768px;
+$mobile-width1:640px;
+$mobile-width2:425px;
+$mobile-width3:360px;
+@mixin pc{
+    @media screen and (min-width:#{$tablet-width+1}){
+        background-color:black;
+    }
+
+}
+
+@mixin tablet{
+    @media screen and (max-width:$tablet-width){
+        background-color:blue;
+    }
+    
+}
+@mixin tablet2{
+    @media screen and (max-width:$tablet-width2){
+        background-color:green;
+    }
+}
+@mixin mobile1{
+    @media screen and (max-width:$mobile-width1){
+        background-color:pink;
+    }
+}
+@mixin mobile2{
+    @media screen and (max-width:$mobile-width2){
+        background-color:orange;
+    }
+}
+@mixin mobile3{
+    @media screen and (max-width:$mobile-width3){
+        background-color:purple;
+    }
+}
+body{
+    @include pc;
+    @include tablet;
+    @include tablet2;
+    @include mobile1;
+    @include mobile2;
+    @include mobile3;
+}

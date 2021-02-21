@@ -1,0 +1,174 @@
+<meta charset="UTF-8">
+<?php
+require_once('./stdpay/libs/INIStdPayUtil.php');
+$SignatureUtil = new INIStdPayUtil();
+
+$mid = "INIpayTest"; 		
+
+$signKey = "SU5JTElURV9UUklQTEVERVNfS0VZU1RS";
+$timestamp = $SignatureUtil->getTimestamp(); 
+
+$orderNumber = $mid . "_" . $SignatureUtil->getTimestamp(); 
+$price = $_POST['price2']; 
+
+$cardNoInterestQuota = "11-2:3:,34-5:12,14-6:12:24,12-12:36,06-9:12,01-3:4";
+$cardQuotaBase = "2:3:4:5:6:11:12:24:36";
+$mKey = $SignatureUtil->makeHash($signKey, "sha256");
+
+$params = array(
+    "oid" => $orderNumber,
+    "price" => $price,
+    "timestamp" => $timestamp
+);
+$sign = $SignatureUtil->makeSignature($params, "sha256");
+$siteDomain = "http://intern20.dothome.co.kr/portfolio/shop";
+?>
+<script src="https://stgstdpay.inicis.com/stdjs/INIStdPay.js"></script>
+<form name="orderForm" id="orderForm" method="POST">
+<input type="hidden" name="version" value="1.0">
+<input type="hidden" name="goodsno" value="<?php echo $_POST['goodsno']?>">
+<input type="hidden" name="mid" value="<?php echo $mid?>">
+<input type="hidden" name="goodname" id="goodname" value="<?php echo $_POST['goodname']?>"><!--상품명-->
+<input type="hidden" name="oid" value="<?php echo $orderNumber?>">
+<input type="hidden" name="price" id="hiddenPrice" value="<?php echo $_POST['price2']?>"><!--상품가-->
+<input type="hidden" name="goodea" id="goodea" value="<?php echo $_POST['goodea']?>"><!--상품 개수-->
+<input type="hidden" name="currency" value="WON">
+<input type="hidden" name="mKey" value="<?php echo $mKey?>">
+<input type="hidden" name="closeUrl" value="<?php echo $siteDomain?>/close.php?>">
+<input type="hidden" name="popupUrl" value="<?php echo $siteDomain?>/popup.php?>">
+<input type="hidden" name="nointerest" value="<?php echo $cardNoInterestQuota?>">
+<input type="hidden" name="quotabase" value="<?php echo $cardQuotaBase?>">
+<input type="hidden" name="gopaymethod" value="">
+<input type="hidden" name="timestamp" value="<?php echo $timestamp?>">
+<input type="hidden" name="signature" value="<?php echo $sign?>">
+<input type="hidden" name="payViewType" value="overlay">
+<input type="hidden" name="charset" value="UTF-8">
+<input type="hidden" name="options" id="options" v.alue="<?php echo $_POST['product_option']?>">
+<input type="hidden" name="returnUrl" value="http://intern20.dothome.co.kr/portfolio/shop/return.php">
+<input type="hidden" name="acceptmethod" value="HPP(1):no_receipt:va_receipt:vbanknoreg(0):below1000" >
+
+<div class="product_buy_div">
+    <p class="product_buy_p">PAY_ORDER</p>   
+</div>
+<!--========주문자 정보=============-->
+  <div class="orderer_info_div">
+    <p class="orderer_info_p">주문자 정보</p>
+    <ul class="orderer_info_title_ul">
+        <li>주문하시는 분</li>
+        <li>주소</li>
+        <li>전화번호</li>
+        <li>휴대폰번호</li>
+        <li>이메일</li>
+    </ul>
+    <ul class="orderer_info_content_ul">
+        <li>
+            <input type="text" placeholder="홍길동" name="buyername" value="<?php echo $_POST['buyername']?>" readonly>
+        </li>
+        <li class="orderer_info_content_li2">
+            <input type="text"  name="order_post" id="order_post" maxlength="5" class="postcodify" value="<?php echo $_POST['order_post']?>" readonly>
+            <input type="text"  name="order_addr1" id="order_addr1" readonly  value="<?php echo $_POST['order_addr1']?>">
+            <input type="text"  name="order_addr2" id="order_addr2"  value="<?php echo $_POST['order_addr2']?>" readonly>
+        </li>
+        <li>
+            <input type="text" placeholder="010-1234-5678" name="buy_tel" class="order_tel" 
+               readonly value="<?php echo $_POST['buy_tel']?>" maxlength="15">
+        </li>
+        <li>
+            <input type="text" placeholder="010-1234-5678" name="buyertel" class="order_tel" 
+            readonly value="<?php echo $_POST['buyertel']?>" maxlength="11">
+        </li>
+        <li>
+            <input type="email" placeholder="test@naver.com" name="buyeremail" 
+              value="<?php echo $_POST['buyeremail']?>" readonly >
+        </li>
+    </ul>
+  </div>
+<!--===============배송 정보===============-->
+  <div class="address_info_div">
+    <p class="address_info_p">배송정보</p>
+    <ul class="address_info_title_ul">
+        <li>배송지 확인</li>
+        <li>받으실 분</li>
+        <li class="order_addr_li order_addr_li_page2">받으실 곳</li>
+        <li>전화번호</li>
+        <li>휴대폰 번호</li>
+        <li>남기실 말씀</li>
+    </ul>
+    <ul class="address_info_content_ul">
+        <li class="address_info_content_li1">
+            <?php echo $_POST['receiver_delpart']?>
+        </li>
+        <li>
+            <input type="text" name="receiver_name" value="<?php echo $_POST['receiver_name']?>" readonly>
+        </li>
+        <li class="order_addr_li order_addr_li_page2">
+            <span class="order_addr_li_sp1">
+                <input type="text" name="receiver_post" value=" <?php echo $_POST['receiver_post']?>" class="postcodify_postcode5" readonly>
+            </span>
+            <span class="order_addr_li_sp2">
+                <input type="text" name="receiver_addr" value=" <?php echo $_POST['receiver_addr']?>" class="postcodify_address"  readonly>
+                <input type="text" name="receiver_addr2" value=" <?php echo $_POST['receiver_addr2']?>" readonly>
+            </span>
+        </li>
+        <li>
+            <input type="text" name="receiver_tel" class="order_tel"   value=" <?php echo $_POST['receiver_tel']?>" readonlymaxlength="15">
+        </li>
+        <li>
+            <input type="text" name="receiver_hp" class="order_tel"  value=" <?php echo $_POST['receiver_hp']?>" readonly maxlength="11">
+        </li>
+        <li class="delivery_msg_li">
+            <input type="text" name="receiver_say"  value="<?php echo $_POST['receiver_say']?>" readonly>
+        </li>
+    </ul>
+  </div>
+
+<!--=================결제정보==================-->
+  <div class="order_pay_info_div">
+    <p class="order_pay_info_p">결제정보</p>
+    <ul class="order_pay_info_title_ul">
+        <li>상품 합계 금액</li>
+        <li>배송비</li>
+        <li class="order_pay_info_title_li3">할인 및 적립</li>
+        <li class="order_pay_info_title_li5">마일리지 사용</li>
+        <li>예치금 사용</li>
+        <li>최종 결제 금액</li>
+    </ul>
+    <ul class="order_pay_info_content_ul">
+        <li class="order_pay_info_content_li1" id="eeaa_price1"><?php echo number_format($_POST['price']);?> 원</li>
+        <li class="order_pay_info_content_li2">2,500원</li>
+        <li class="order_pay_info_content_li3">
+            <span>할인:<b>(-) 0원</b><i> (상품 0원, 회원 0원, 쿠폰 0원)</i></span>
+            <span>적립 마일리지:<b>(+) 0원</b><i> (상품 0원, 회원 0원, 쿠폰 0원)</i></span>
+        </li>
+        <li class="order_pay_info_content_li5">
+            <label class="myMileage_lb">
+                <input type="text" name="mileage_use"  value="<?php echo $_POST['mileage_use']?>" readonly> 원
+                <span class="myMileage_sp1">(보유 마일리지 : 0원)</span>
+            </label>
+            <span class="myMileage_sp2">※ 0원 이상 보유해야 사용이 가능합니다.</span>
+        </li>
+        <li class="order_pay_info_content_li6">            
+            <input type="text" readonly> 원
+            <label class="deposit_save">(보유 예치금 : 0원)</label>
+        </li>
+        <li class="order_pay_info_content_li7" id="ffinal_price"><?php echo number_format($_POST['price2'])?> 원</li>
+    </ul>
+ </div>
+
+
+<!--==================결제 금액=================-->
+    <div class="total_price_div  total_price_div_page2">
+        <ul class="total_price_ul">
+            <li>최종 결제 금액</li>
+            <li id="final_price_last"><?php echo number_format($_POST['price2'])?></li>
+            <li>원</li>
+        </ul>
+    </div>
+    <div class="payment_agree_btn_div">
+        <button type="button" class="payment_agree_btn" onclick="gopay_pass();">결제진행</button>
+    </div>
+  </div>
+</form>
+<script>
+ var _0xf67d=['554450JPXkcO','107867VEGpEE','7rnMfZC','3FlfzWC','orderForm','348488PKzdVH','1089158DXLRbZ','1184836wAKbdc','65hvYPOn','11031IUmADq','1003699MBzVXP','pay'];var _0xfadd=function(_0x2f25d6,_0x3ddaf1){_0x2f25d6=_0x2f25d6-0xa6;var _0xf67dce=_0xf67d[_0x2f25d6];return _0xf67dce;};(function(_0xf668b,_0xe1fec7){var _0x28de8b=_0xfadd;while(!![]){try{var _0x107867=parseInt(_0x28de8b(0xb1))*parseInt(_0x28de8b(0xa6))+-parseInt(_0x28de8b(0xaa))+-parseInt(_0x28de8b(0xab))+-parseInt(_0x28de8b(0xb0))+parseInt(_0x28de8b(0xae))+parseInt(_0x28de8b(0xa7))*parseInt(_0x28de8b(0xa9))+parseInt(_0x28de8b(0xac))*parseInt(_0x28de8b(0xad));if(_0x107867===_0xe1fec7)break;else _0xf668b['push'](_0xf668b['shift']());}catch(_0x2e9a40){_0xf668b['push'](_0xf668b['shift']());}}}(_0xf67d,0xa9243));function gopay_pass(){var _0x38c6c6=_0xfadd;INIStdPay[_0x38c6c6(0xaf)](_0x38c6c6(0xa8));}
+</script>

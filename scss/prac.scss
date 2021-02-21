@@ -1,0 +1,31 @@
+@charset "utf-8";
+body > *{
+    margin:0;
+    padding:0;
+    line-height:1;
+    box-sizing: border-box;
+    background-color: red;
+}
+
+@mixin ul($dir, $w, $h, $ea){
+        list-style: none;
+        @if($dir=="wide"){
+            width:$w*$ea+px;
+            height:$h+px;
+        }@else if($dir=="ver"){
+            width:$w+px;
+            height:$h*$ea+px;
+        }
+
+        &>li{
+            width:$w+px;
+            height:$h+px;
+            text-align:center;
+            line-height:$h+px;
+            color:red;
+        }
+}
+.ults{
+    @include ul('ver', 80, 30, 4);
+    background-color: wheat;
+}

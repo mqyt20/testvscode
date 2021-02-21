@@ -1,0 +1,77 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    line-height: 1;
+}
+*{@include base;}
+@function sizes($size,$no){ //scss function(수식 계산 형태), @return 사용 필수
+    @return $size / $no;
+}
+
+$boxsize:500px;
+
+@function setting($w){
+    @return ($boxsize / $w);
+}
+
+@function colorsetting($colorcode){
+    @if($colorcode==1){
+        $code : #FFCCEE;
+        @return $code;
+    }@else{
+        $code :salmon;
+        @return $code;
+    }
+}
+.box{
+    width:sizes(500px,5);
+    height:sizes(500px,5);
+    background-color:blue ;
+}
+.ulbox{
+    list-style: none;
+    width:$boxsize;
+    height:$boxsize;
+    border:1px solid black;
+
+    &>li:nth-of-type(1){
+        width:setting(8);
+        height:setting(8);
+        background-color:colorsetting(1);
+    }
+    &>li:nth-of-type(2){
+        width:setting(5);
+        height:setting(5);
+        background-color:colorsetting(2);
+    }
+    &>li:nth-of-type(3){
+        width:setting(3);
+        height:setting(3);
+        background-color:colorsetting(1);
+    }
+}
+$border:1px solid black;
+$color:green, blue, purple, black, gray;
+@function calcT($x){
+   @return  50*$x+px;
+}
+.top{
+    width:700px;
+    height:350px;
+    border:$border;
+    display:flex;
+    flex-flow:column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    @for $i from 1 through 5 {
+        &>span:nth-child(#{$i}){
+            background-color:nth($color, $i);
+            width:calcT($i);
+            height:35px;
+            display:block;
+        }
+    }
+}

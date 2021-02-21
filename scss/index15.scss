@@ -1,0 +1,70 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    line-height: 1;
+    box-sizing: border-box;
+}
+*{@include base;}
+@mixin obsize($w,$h){
+    width:$w+px;
+    height:$h+px;
+}
+@mixin position($p){
+    @if($p==1){
+        position: relative;
+    }@else if($p==2){
+        position:absolute;
+    }@else if($p==3){
+        position:fixed;
+    }
+}
+@mixin border($bs, $bl, $bc){
+    border:$bs+px $bl $bc;  
+}
+@mixin move($left, $top){
+    left:$left+px;
+    top:$top+px;
+}
+.box{
+    @include obsize(300,80);
+    @include position(1);
+    @include border(1, solid, black);
+    margin:0 auto;
+    font-size:12px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    &>.ckbox{
+        @include position(1);
+        margin-right:10px;
+        margin-top:-1px;
+        &:before{
+            content:"";
+           @include obsize(16,16);
+           @include position(2);
+           @include border(2, solid, purple);
+           @include move(0,-3);
+           background-color: white;
+        }
+
+        &:after{
+            content: "";
+            @include position(2);
+            @include move(3,0);
+            color:purple;
+            font-weight:bold;
+            font-size:15px;
+        }
+    }
+    &>.ckbox:checked{
+        &:after{
+            content:"✔";
+        }
+    }
+    &>label{
+        @include obsize(65,15);
+        display:inline-block;
+        line-height: 15px;
+    }
+}

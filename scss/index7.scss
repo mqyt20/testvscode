@@ -1,0 +1,56 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    list-style:none;
+    line-height:1;  //폰트사이즈에 맞춰 텍스트 세로 간격 표준화
+}
+@mixin font-face($fontnum){
+    @if($fontnum==1){
+        font-family:Arial, Helvetica, sans-serif;
+    }@else if($fontnum==2){
+        font-family:'Times New Roman', Times, serif;
+    }
+}
+body{
+    @include base;
+    @include font-face(1);
+}
+.olcss{
+    @include font-face(1);
+    @include base;
+    width:100px;
+    height:auto;
+    &>li{
+        width:100%;
+        height:30px;
+        line-height: 30px;
+        text-align: center;
+    }
+}
+
+$colors: rgb(77, 119, 86), rgb(146,15,163),rgb(0,0,0), rgb(28, 117, 190);
+$i:1;
+@while($i<5){
+    .li#{$i}{
+       color:nth($colors,$i);
+    }
+    $i:$i+1;
+}
+
+/*이미지 반복문 사용*/
+.divbox{
+    width:240px;
+    height:350px;
+    border:1px solid black;
+}
+$imgs:'product1.gif','product2.gif','product3.gif','product4.gif';
+$w:1;
+@while ($w<=4){
+    .g#{$w}{
+        background-image:url('./images/'+nth($imgs, $w));
+        background-size:cover;
+        background-position:center top;
+    }
+    $w:$w+1;
+}

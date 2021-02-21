@@ -1,0 +1,159 @@
+<?php 
+   include "product_code.php";
+?>
+<meta charset="utf-8">
+<div id="subpage" :class="s1">
+    <!--상품 등록 영역-->
+  <form name="pd" id="pd">
+    <aside :class="s2">
+        <label :class="s3">{{part_1}}</label>
+    <div :class="s4" style="margin-bottom:30px;">
+        <ul :class="s5">
+            <li>
+                <ol :class="s6">
+                    <li>상품코드</li>
+                    <li><input type="text" name="goodsno" id="goodsno" class="input_read" readonly value=""></li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품명 *</li>
+                    <li>
+                        <input type="text" name="product_nm" id="product_nm" class="input_read2" maxlength="150"> 
+                        &nbsp;※ 상품명은 150자까지 등록이 가능합니다.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>간편 설명 *</li>
+                    <li><input type="text" name="product_nmdtc" id="product_nmdtc" class="input_read5" maxlength="200"> 
+                        &nbsp;※ 최대 200자 이내
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>소비자 가격 *</li>
+                    <li>
+                        <input type="text" value="0" name="product_money" id="product_money" class="input_read t_right" maxlength="8"  onkeyup="discountReset(1);">
+                        &nbsp;원
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품 할인 유/무</li>
+                    <li class="li_flex">
+                        <input type="radio" name="product_dc" id="product_dc" value="Y" onclick="pDiscountShow(1);">
+                        <label for="product_dc">적용</label>
+                        <input type="radio" name="product_dc" id="product_dc2" value="N" checked onclick="pDiscountShow(2);">
+                        <label for="product_dc2">미적용</label>
+                    </li>
+                </ol>
+            </li>
+            <li id="pDiscount" style="display:none;">
+                <ol :class="s6">
+                    <li>상품 할인율</li>
+                    <li class="li_flex">
+                        <input type="radio" name="product_dcpart" id="product_dcpart" value="P" onclick="discountReset(2);">
+                        <label for="product_dcpart">% 단위</label>
+                        <input type="radio" name="product_dcpart" id="product_dcpart2" value="M" checked onclick="discountReset(2);">
+                        <label for="product_dcpart2">원 단위</label>
+                        <label for="product_dcnum" style="margin-right:3px;">할인율(할인 금액) : </label>
+                        <input type="text" name="product_dcnum" id="product_dcnum" class="input_read t_right"
+                           onkeyup="pDiscountAdjust();">
+                        <label for="product_sales" style="margin:0 3px 0 20px;">※ 할인 최종 금액 :</label>
+                        <input type="text" name="product_sales" value="" id="product_sales" class="input_read t_right">
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품 제한 수량 *</li>
+                    <li>
+                        <input type="text" name="product_ea" id="product_ea" value="0" class="input_read t_right" maxlength="5">
+                        &nbsp;※ 수량 최대 입력값은 99999개 입니다.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품 대표 이미지 *</li>
+                    <li>
+                        <input type="file" name="product_img" id="product_img">
+                        &nbsp;※ JPG, BMP, PNG, JPEG, GIF 2MB 이하만 업로드 가능합니다.(500*500)
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품 옵션명</li>
+                    <li class="li_lb">
+                        <label for="product_option1">옵션명 1 : </label>
+                        <input type="text" name="product_option1" id="product__option1" value="" class="input_read">
+                        <label for="product_option2">옵션명 2 : </label>
+                        <input type="text" name="product_option2" id="product__option2" value="" class="input_read">
+                        <label for="product_option3">옵션명 3 : </label>
+                        <input type="text" name="product_option3" id="product__option3" value="" class="input_read">
+                        &nbsp;※ 미입력 시 옵션은 출력되지 않습니다.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품 URL</li>
+                    <li>
+                        <input type="text" name="product_url" id="product__url" value="" class="input_read3" >
+                         &nbsp;&nbsp;※ 공유하고 싶은 소셜 URL을 입력해 주시면 됩니다.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품 추가 이미지</li>
+                    <li class="li_lb">
+                        <span class="li_sp11">
+                            <label for="product_img1">상품 추가 이미지 1 : </label>
+                            <input type="file" name="product_img1" id="product__img1" value="" >
+                            <span>※ 사이즈 500*500, JPG, BMP, PNG, JPEG, GIF 파일만 사용 가능합니다.</span>
+                        </span>
+                        <span class="li_sp11">
+                            <label for="product_img2">상품 추가 이미지 2 : </label>
+                            <input type="file" name="product_img2" id="product__img2" value="" >
+                            <span>※ 사이즈 500*500, JPG, BMP, PNG, JPEG, GIF 파일만 사용 가능합니다.</span>
+                        </span>
+                        <span class="li_sp11">
+                            <label for="product_img3">상품 추가 이미지 3 : </label>
+                            <input type="file" name="product_img3" id="product__img3" value="" >
+                            <span>※ 사이즈 500*500, JPG, BMP, PNG, JPEG, GIF 파일만 사용 가능합니다.</span>
+                        </span>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol :class="s6">
+                    <li>상품 상세설명 *</li>
+                    <li>
+                        <textarea name="product_contents1" id="product_contents1" class="tarea"></textarea>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div :class="s7">
+        <button type="button"  :class="s8" onclick="insert_ck(1);">등록 완료</button>
+        <button type="button"  :class="s9" onclick="insert_ck(2);">등록 취소</button>
+    </div>
+ </aside>
+</form>
+</div>   
+<script>
+ var _0x3677=['3RnmKIl','focus','none','action','product_nmdtc','product_contents1','할인율은\x20숫자로만\x20입력해\x20주시기\x20바랍니다.\x20','상품\x20상세\x20설명을\x20기재해\x20주시기\x20바랍니다.','subview','간편\x20설명을\x20입력해\x20주시기\x20바랍니다.','467YyXrkN','multipart/form-data','pDiscount','post','product_sales','enctype','btn_css2','상품명을\x20입력해\x20주시기\x20바랍니다.','대표\x20이미지를\x20첨부해\x20주시기\x20바랍니다.','2967175RdyFqG','product_money','aside_css','1001fNPYrG','instances','product_dcnum','href','getData','getElementById','8711yvcwAK','614vfMgPq','floor','소비자\x20가격을\x20먼저\x20입력해\x20주시기\x20바랍니다.','submit','display','chart_css','btn_css1','소비자\x20가격은\x20숫자로만\x20입력해\x20주시기\x20바랍니다.','상품\x20등록','product_ea','상품\x20제한\x20수량은\x20숫자로만\x20입력해\x20주시기\x20바랍니다.','product_dc','checked','831652PNuOMT','87NzmmLs','227eellDM','product_nm','391954BhIQzZ','part_css','ul_insert','style','소비자\x20가격을\x20입력해\x20주시기\x20바랍니다.','49iffcnr','./product_info.html','할인율을\x20기재해\x20주시기\x20바랍니다.','value','product_img','#subpage'];var _0x1429=function(_0x3cb4b7,_0x2b3b2d){_0x3cb4b7=_0x3cb4b7-0x11f;var _0x3677fe=_0x3677[_0x3cb4b7];return _0x3677fe;};var _0x25e1af=_0x1429;(function(_0x2b275f,_0x475278){var _0x54a73d=_0x1429;while(!![]){try{var _0x142c3e=-parseInt(_0x54a73d(0x122))*parseInt(_0x54a73d(0x12d))+parseInt(_0x54a73d(0x149))+-parseInt(_0x54a73d(0x137))*parseInt(_0x54a73d(0x127))+-parseInt(_0x54a73d(0x157))+parseInt(_0x54a73d(0x143))*-parseInt(_0x54a73d(0x120))+parseInt(_0x54a73d(0x11f))*-parseInt(_0x54a73d(0x14a))+parseInt(_0x54a73d(0x140));if(_0x142c3e===_0x475278)break;else _0x2b275f['push'](_0x2b275f['shift']());}catch(_0x2ad1f5){_0x2b275f['push'](_0x2b275f['shift']());}}}(_0x3677,0xa250c));function insert_ck(_0x2d4999){var _0x234ea4=_0x1429;_0x2d4999==0x1?insert_ck2():location[_0x234ea4(0x146)]=_0x234ea4(0x128);}function insert_ck2(){var _0x3086ba=_0x1429,_0x54621e=CKEDITOR[_0x3086ba(0x144)][_0x3086ba(0x132)];if(pd[_0x3086ba(0x121)]['value']=='')return alert(_0x3086ba(0x13e)),pd['product_nm'][_0x3086ba(0x12e)](),![];else{if(pd[_0x3086ba(0x131)]['value']=='')return alert(_0x3086ba(0x136)),0x5,pd[_0x3086ba(0x131)][_0x3086ba(0x12e)](),![];else{if(Number(pd[_0x3086ba(0x141)][_0x3086ba(0x12a)])<0x3e8)return alert(_0x3086ba(0x126)),pd['product_money']['focus'](),![];else{if(pd[_0x3086ba(0x155)][0x0]['checked']==!![]){if(pd[_0x3086ba(0x145)]['value']==''||pd[_0x3086ba(0x13b)][_0x3086ba(0x12a)]=='')return alert(_0x3086ba(0x129)),pd[_0x3086ba(0x145)][_0x3086ba(0x12e)](),![];else{if(isNaN(pd['product_dcnum'][_0x3086ba(0x12a)]))return alert(_0x3086ba(0x133)),pd[_0x3086ba(0x145)]['focus'](),![];}}}}}if(Number(pd[_0x3086ba(0x153)]['value'])==0x0)return alert('상품\x20제한\x20수량을\x20입력해\x20주시기\x20바랍니다.'),pd['product_ea'][_0x3086ba(0x12e)](),![];else{if(pd[_0x3086ba(0x12b)][_0x3086ba(0x12a)]=='')return alert(_0x3086ba(0x13f)),pd[_0x3086ba(0x12b)]['focus'](),![];else{if(_0x54621e[_0x3086ba(0x147)]()=='')return alert(_0x3086ba(0x134)),_0x54621e[_0x3086ba(0x12e)](),![];else insert_ck_final();}}}function insert_ck_final(){var _0x3aa721=_0x1429;if(isNaN(pd[_0x3aa721(0x141)]['value']))return alert(_0x3aa721(0x151)),pd['product_money'][_0x3aa721(0x12e)](),![];else{if(isNaN(pd[_0x3aa721(0x153)]['value']))return alert(_0x3aa721(0x154)),pd['product_ea'][_0x3aa721(0x12e)](),![];else pd['method']=_0x3aa721(0x13a),pd[_0x3aa721(0x13c)]=_0x3aa721(0x138),pd[_0x3aa721(0x130)]='p_insertok.php',pd[_0x3aa721(0x14d)]();}}function pDiscountShow(_0x398830){var _0x26f2e1=_0x1429;_0x398830==0x1?(document[_0x26f2e1(0x148)](_0x26f2e1(0x139))[_0x26f2e1(0x125)][_0x26f2e1(0x14e)]='block',pd[_0x26f2e1(0x13b)][_0x26f2e1(0x12a)]=pd[_0x26f2e1(0x141)][_0x26f2e1(0x12a)]):(pd[_0x26f2e1(0x145)]['value']='',pd[_0x26f2e1(0x13b)][_0x26f2e1(0x12a)]=pd['product_money'][_0x26f2e1(0x12a)],document['getElementById']('pDiscount')['style'][_0x26f2e1(0x14e)]='none');}function pDiscountAdjust(){var _0x243796=_0x1429,_0x287704=Number(pd[_0x243796(0x141)][_0x243796(0x12a)]),_0x3aa283=Number(pd[_0x243796(0x145)]['value']),_0x3084e3;if(_0x287704<0x3e8)return alert(_0x243796(0x14c)),pd[_0x243796(0x141)][_0x243796(0x12e)](),pd['product_dcnum'][_0x243796(0x12a)]='',![];else{if(pd['product_dcpart'][0x0][_0x243796(0x156)]==!![])_0x3084e3=_0x287704*(0x64-_0x3aa283)/0x64,pd[_0x243796(0x13b)][_0x243796(0x12a)]=Math[_0x243796(0x14b)](_0x3084e3/0xa)*0xa;else pd['product_dcpart'][0x1][_0x243796(0x156)]==!![]&&(pd['product_sales'][_0x243796(0x12a)]=_0x287704-_0x3aa283);}}function discountReset(_0x4a505c){var _0x343f79=_0x1429;_0x4a505c==0x1&&(pd[_0x343f79(0x155)][0x1][_0x343f79(0x156)]=!![],document[_0x343f79(0x148)]('pDiscount')[_0x343f79(0x125)][_0x343f79(0x14e)]=_0x343f79(0x12f)),pd[_0x343f79(0x145)][_0x343f79(0x12a)]='',pd[_0x343f79(0x13b)]['value']=pd[_0x343f79(0x141)]['value'];}let p_in=new Vue({'el':_0x25e1af(0x12c),'data':{'part_1':_0x25e1af(0x152),'s1':_0x25e1af(0x135),'s2':_0x25e1af(0x142),'s3':_0x25e1af(0x123),'s4':_0x25e1af(0x14f),'s5':_0x25e1af(0x124),'s6':'ol_insert','s7':'div_btn','s8':_0x25e1af(0x150),'s9':_0x25e1af(0x13d)}});
+</script> 
+<script src="./ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR .replace("product_contents1", {width:835, height:200});
+    //상품 코드 생성 코드
+    document.getElementById('goodsno').value=<?php echo $pnumber ?>;
+</script>

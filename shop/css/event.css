@@ -1,0 +1,244 @@
+@charset "UTF-8";
+/*서브페이지 기본 세팅*/
+/* 폰트 */
+/*font-family: 'Noto Sans KR', sans-serif;  font-weight:100,300,400,500,700,900*/
+/*font-family: 'Nanum Gothic',   font-weight:400,700,800 */
+/*font-family: 'Nanum Pen Script', cursive;  font-weight:400*/
+/*font-family: 'Big Shoulders Stencil Display', cursive;  font-weight:100~900(200제외)*/
+/*font-family: 'Open Sans', sans-serif;  font-weight: 300,400,600,700,800*/
+.section_subpage {
+  height: auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #454952;
+  margin-top: 50px;
+}
+
+.sub_div {
+  width: 1100px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid #454952;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 120px 700px;
+      grid-template-rows: 120px 700px;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+}
+
+.sub_div > div:nth-of-type(1) {
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+.sub_div > div:nth-of-type(2) {
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+/*2021 이벤트 타이틀*/
+.event_div1 {
+  font-family: 'Nanum Gothic';
+  font-weight: bold;
+  font-size: 17px;
+  color: #454952;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* 블랙 스크린 */
+.game_black_screen {
+  position: absolute;
+  width: 100%;
+  height: 550px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 50;
+  display: none;
+}
+
+/* 게임 이미지 영역*/
+.event_div2 {
+  background-image: url("../event/event_img.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+  position: relative;
+}
+
+/*게임 횟수 표시 영역*/
+.number_css {
+  width: 40px;
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  position: absolute;
+  display: block;
+  left: 50%;
+  margin-left: -20px;
+  z-index: 5;
+  -webkit-box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.2);
+          box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.number_css > img {
+  width: 40px;
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*이벤트 참여 유의 사항(하단)*/
+.game_info {
+  width: 1000px;
+  height: 125px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  position: absolute;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: "";
+  right: 10px;
+  bottom: 15px;
+}
+
+.game_info > ul {
+  width: 100%;
+  height: auto;
+}
+
+.game_info > ul > li {
+  width: 1000px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-align: right;
+  line-height: 25px;
+}
+
+.game_info > ul > li:nth-of-type(3), .game_info > ul > li:nth-of-type(5) {
+  color: orangered;
+}
+
+/*틀린 그림 찾기 오른쪽 클릭 영역*/
+.game_check {
+  position: relative;
+  width: 550px;
+  height: 550px;
+  left: 50%;
+  top: 10px;
+  cursor: pointer;
+}
+
+/* 틀린 그림 정답 좌표*/
+.ok_game {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: block;
+  color: chartreuse;
+}
+
+.ok_game > img {
+  width: 150%;
+}
+
+.ok_game:nth-of-type(1) {
+  right: 55px;
+  top: 10px;
+  width: 150px;
+  height: 150px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.ok_game:nth-of-type(2) {
+  right: 500px;
+  top: 290px;
+  width: 150px;
+  height: 150px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.ok_game:nth-of-type(3) {
+  right: 180px;
+  top: 390px;
+  width: 120px;
+  height: 120px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.ok_game:nth-of-type(4) {
+  right: 200px;
+  top: 110px;
+  width: 120px;
+  height: 120px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.ok_game:nth-of-type(5) {
+  left: 490px;
+  top: 30px;
+  width: 160px;
+  height: 160px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.ok_game:nth-of-type(6) {
+  right: 250px;
+  top: 420px;
+  width: 120px;
+  height: 120px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.ok_game:nth-of-type(7) {
+  right: 20px;
+  top: 160px;
+  width: 120px;
+  height: 120px;
+  z-index: 10;
+  cursor: pointer;
+}
+/*# sourceMappingURL=event.css.map */

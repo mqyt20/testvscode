@@ -1,0 +1,73 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap");
+/*font-family: 'Noto Sans KR', sans-serif; font-weight:100;300;400;500*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 1;
+}
+
+/*
+.maincss{
+    display:grid;        //grid:2차원 돔객체 정렬방식
+    grid-template-rows: repeat(3,100px);  // 가로 형태 구조, repeat(행3개,세로높이)
+    grid-template-columns:repeat(3,1fr); //세로 형태 구조, repeat(열3개, 단위)
+    grid-template-areas:                  //전체 파트별 구조
+    "header header header"
+    "section section aside"
+    "footer footer footer";
+    width:400px;
+}
+header{
+    grid-area:header;             //grid의 변수명
+    background-color:blue;
+    width:400px;                   // ★ 높이만 grid-template에 사용(너비 X)
+}
+section{
+    grid-area:section;
+    background-color: green;
+    width:300px;
+}
+aside{
+    grid-area:aside;
+    background-color: yellow;
+    width:100%;
+}
+footer{
+    grid-area: footer;
+    background-color: black;
+    width:400px;
+}
+*/
+/*이하 방법은 IE, Edge(v16이하)에서 작동이 안되므로 모바일 전용 코드*/
+.maincss {
+  display: -ms-grid;
+  display: grid;
+  grid-template: "A A A" 50px
+ "B C C" 200px
+ "D D D" 150px
+ /1fr 100px 2fr;
+}
+
+header {
+  grid-area: A;
+  background-color: blue;
+}
+
+section {
+  grid-area: B;
+  background-color: green;
+}
+
+aside {
+  grid-area: C;
+  background-color: yellow;
+}
+
+footer {
+  grid-area: D;
+  background-color: black;
+}
+/*# sourceMappingURL=index26.css.map */

@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap");
+/*font-family: 'Noto Sans KR', sans-serif; font-weight:100;300;400;500*/
+/*
+@mixin
+1.font
+2.ul,ol(flex)로 생성(float:left, display:inline-block)
+3.image(background)
+4.flex
+5.@media
+6.span, label
+7.input,select,textarea
+8.transform,transition
+9.color,opacity
+*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 1;
+}
+
+.header {
+  height: auto;
+}
+
+.divcss {
+  width: 1200px;
+  height: 40px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: "normal";
+  color: #f6fcfd;
+  margin: 0 auto;
+}
+
+.ulcss {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: "";
+      -ms-flex-align: "";
+          align-items: "";
+  -ms-flex-line-pack: "";
+      align-content: "";
+  border: 1px solid black;
+  background-color: #1bb6d1;
+  list-style: none;
+  overflow: hidden;
+}
+
+.ulcss > li {
+  width: 12.5%;
+  height: 40px;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: "";
+      align-content: "";
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  border-right: 1px solid black;
+  background-color: #1bb6d1;
+  font-size: 15px;
+}
+
+.ulcss > li:first-of-type {
+  border-right: 1px solid black;
+}
+
+.ulcss > li > span {
+  position: absolute;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+}
+
+.div_box {
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+  color: white;
+  text-align: center;
+  position: relative;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+}
+
+.span_box {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  display: block;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+}
+/*# sourceMappingURL=index23.css.map */

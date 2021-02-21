@@ -1,0 +1,62 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*transform:2D(x,y)|3D(x,y,z)
+<2d>
+1.scale(scale, scaleX, scaleY),단위(0.5, 1, 2...)
+2.rotate(deg),rotateX, rotateY 예-transform:rotateX(245deg) rotateY(245deg);
+3.translate:px, %(대각선 방향으로 이동 가능)
+4.skew(deg), skewX, skewY 예- transform:skew(45deg, 45deg);
+*/
+.divcss {
+  position: relative;
+  border: 1px solid black;
+  width: 100%;
+  height: 300px;
+}
+
+#box {
+  position: absolute;
+  display: block;
+  background-color: #ccaa88;
+  width: 50px;
+  height: 50px;
+  left: 0px;
+  top: 0px;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 5s;
+          transition-duration: 5s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  /*
+    ease:처음과 끝에만 속도가  느려짐,  linear:속도 동일
+    steps(횟수,  end):컷 형식으로 움직임
+    cubic-bezier:사용자가 직접 컨트롤(0속도가 빠름, 1:속도가 느림)
+    */
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid black;
+  cursor: pointer;
+  position: absolute;
+  top: 300px;
+}
+
+.btn:hover ~ .divcss > #box {
+  left: 500px;
+  -webkit-transform: skew(360deg, 45deg);
+          transform: skew(360deg, 45deg);
+}
+/*# sourceMappingURL=index10.css.map */

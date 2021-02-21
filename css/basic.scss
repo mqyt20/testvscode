@@ -1,0 +1,595 @@
+
+
+@mixin font($family,$fweight,$fsize,$fcolor){
+    @if($family=="noto"){
+        font-family: 'Noto Sans KR', sans-serif;
+    }@else if($family=="gothic"){
+        font-family: 'Nanum Gothic'
+    }@else if($family=="pen"){
+        font-family: 'Nanum Pen Script';
+    }@else if($family=="big"){
+        font-family: 'Big Shoulders Stencil Display', cursive;
+    }@else if($family=="open"){
+        font-family: 'Open Sans', sans-serif;
+    }
+    font-weight:$fweight;
+    font-size:$fsize;
+    color:$fcolor;
+
+}
+@mixin subpage{
+    height:auto;
+    @include font('noto',400,13,rgb(69,73,82));
+}
+@mixin flex($direction,$wrap,$just,$items,$content){
+    display:flex;
+    flex-flow:$direction $wrap;
+    justify-content: $just;
+    align-items: $items;
+    align-content: $content;
+}
+@mixin div($div_width, $div_height, $div_margin, $div_padding, $div_border){
+    width:$div_width;
+    height:$div_height;
+    @if($div_margin=="auto"){
+        margin:0 auto;
+    }@else{
+        margin:$div_margin;
+    }
+    padding:$div_padding;
+    border:$div_border;
+}
+@mixin position($ps){
+    @if($ps=="re"){
+        position:relative;
+    }@else if($ps=="ab"){
+        position:absolute;
+    }@else if($ps=="fi"){
+        position:fixed;
+    }
+}
+@mixin bg($ap,$bgcolor,$bgurl,$img-position,$img-size){
+    @if($ap==0){
+        background-color:rgba($bgcolor);
+    }@else if($ap==1){
+        background-color: $bgcolor;
+    }@else if($ap==2){
+        background-image:url($bgurl);
+        background-repeat: no-repeat;
+        background-position:$img-position;
+        background-size:$img-size;
+    }
+}
+@mixin btn($btnCol, $fcol){
+    background-color: $btnCol;
+    color:$fcol;
+    font-family: 'Nanum Gothic';
+    font-size: 13px;
+    cursor:pointer;
+    outline:0;
+}
+@mixin html5($height){
+    min-height:$height;
+}
+$cur:Pointer;
+
+$arrays : 40px, 80px, 80px, 100px, 100px, 80px, 90px, 40px, 40px, 100px, 40px, 120px, 40px ;
+$view_width1:1250px;
+$view_width2:1024px;
+$view_width3:960px;
+$view_width4:768px;
+$view_width5:600px;
+$view_width6:480px;
+$view_width7:320px;
+@mixin pc1{
+    @media (max-width:$view_width1){
+        .nav_ul{
+            &>li{
+                @include div(20%, 40px, 0,0,0);
+                line-height: 40px;
+                min-width:calc(100%/5.2);
+                float:left;
+                text-align: center;
+                line-height: 40px;
+                cursor: $cur;
+                transition: 0.34s ease;
+            }
+            &>li:hover, &>li:active, &>li:focus{
+                font-weight: bolder;  
+            }
+        }
+
+        .header_line_ul{
+            max-width:$view_width1;
+        }
+        .myskill{
+            @include flex (row, nowrap, center, center,"");
+            padding:0 1%;
+        }
+
+        .myskill> .myskill_ol{
+            max-width: calc(#{$view_width1}*0.85);
+            justify-content: flex-start;
+            overflow:hidden;
+            &>li{
+                margin:0px 5px;
+                width:auto !important;
+                padding:0 20px;
+            }
+        }
+        .left_skill, .right_skill{
+             @include div(50px, 120px, 0, 0, 0);
+             display: block;
+             left:0;
+             top:0;
+             line-height: 120px;
+             &>img{
+                 width:100%;
+                 height:50px;
+                 vertical-align: middle;
+             }
+        }
+        .portfolio_css{
+            max-width: $view_width1;
+            @include flex(row, wrap, center, flex-start,flex-start);
+        }
+
+        .p_span{
+            display: inline-block;
+            margin:5px; 
+        }
+        .info_div{
+            width:98%;
+            margin:0 auto;
+        }
+        .info_banner{
+            width: 950px;
+            margin:0 auto; 
+        }
+        .info_banner_in{
+            @include div(950px, 250px, 0, 25px 15px, 0);
+        }
+        .right_banner_ul{
+            @include div(600px, 200px, 0, 5px, 0);
+        }
+        .info_btn{
+            max-width: 950px;
+        }
+        .my_level{
+            width:95%;
+        }
+
+        .contact_div{
+            width:95%;
+            margin:0 auto;
+        }
+    }
+}
+@mixin pc2{
+    @media (max-width:$view_width2){  //and (max-width: ($view_width1)-1px)
+        .header_line_ul{
+            max-width:$view_width2;
+        }
+
+        .myskill> .myskill_ol{
+            max-width: calc(#{$view_width2}*0.9);
+        }
+
+        .portfolio_css{
+            max-width: $view_width2;
+            margin:0 auto;
+        }
+        .info_banner{
+            width: 850px;
+            margin:0 auto; 
+        }
+        .info_banner_in{
+            @include div(850px, 250px, 0, 25px 15px, 0);
+        }
+        .right_banner_ul{
+            @include div(500px, 200px, 0, 0, 0);
+        }
+        .info_btn{
+            max-width: 850px;
+        }
+        .info_title{
+            font-size: 23px;;
+        }
+        .level_ul{
+            font-size: 13px;
+            &>li:nth-of-type(5){
+               white-space: nowrap;
+               overflow: hidden;
+               text-overflow:ellipsis;
+            }
+            & i{
+                width:90px;
+            }
+
+            & .graph{
+                width:300px;
+            }
+        }
+    }
+}
+
+@mixin tab1{
+    @media (max-width:$view_width3){
+
+        .header_line_ul{
+            max-width:$view_width3;
+        }
+
+        .myskill> .myskill_ol{
+            max-width: calc(#{$view_width3}*0.9);
+        }
+        
+        .portfolio_css{
+            max-width: $view_width3;
+        }
+        .p_span_lb1{
+            font-size: 16px;
+        }
+
+        .info_banner{
+            width: 730px;
+            margin:0 auto; 
+            box-sizing: content-box;
+        }
+        .info_banner_in{
+            @include div(730px, 250px, 0, 25px 15px, 0);
+        }
+        .right_banner_ul{
+            @include div(380px, 200px, 0, 0, 0);
+        }
+        .info_btn{
+            width: 730px;
+        }
+       .per_textarea{
+            padding:10px;
+            width:680px;
+        }
+    }
+
+}
+@mixin tab2{
+    @media (max-width:$view_width4){
+        #header{
+            max-height:300px;
+        }
+        .header_line_ul{
+            max-width:$view_width4;
+        }
+        .header_title{
+            font-size: 23px;
+            height:50px;
+            line-height:50px;
+        }
+        .header_domain{
+            font-size: 14px;
+            height:40px;
+            line-height: 40px;
+        }
+        .nav_ul{ 
+            width:93%;
+            &>li{
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }  
+        .title_label{
+            @include font('open', 400, 13px,white);  
+        }
+        .myskill> .myskill_ol{
+            max-width: calc(#{$view_width4}*0.9);
+            &>li{
+                padding:0 10px;
+                font-weight: 13px;;
+            }
+        }
+        .p_span{
+            width:180px;
+        } 
+
+        .p_span_lb1{
+            font-size: 15px;
+        }
+
+        .p_span_lb2{
+            font-size:12.5px;
+        }
+        .portfolio_css{
+            max-width: $view_width4;
+        }
+        .header_line_ul{
+            max-width:$view_width4;
+        }
+        .myskill_ol{
+            max-width: calc(#{$view_width4}*0.9);
+            &>li{
+                padding:0 10px;
+                font-size: 13px !important;
+            }
+         }
+        .info_title{
+            font-size: 20px;
+        }
+
+        .info_banner{
+            width: 570px;
+            height:240px;
+            margin:0 auto; 
+        }
+        .info_banner_in{
+            @include div(570px, 250px, 0, 25px 15px, 0);
+        }
+        .left_banner_sp{
+            width:250px;
+            &>img{
+                width:100%;
+                height:180px;
+                object-fit: cover
+            }
+        }
+        .right_banner_ul{
+            @include div(280px, 200px, 0, 0, 0);
+            &>li{
+                margin-bottom: 5px;;
+            }
+            &>.banner_title{
+                font-size: 14px;
+            }
+        }
+        .info_btn{
+            max-width: 570px;
+        }
+        .level_ul{
+            & i{
+                width:70px;
+            }
+
+            & .graph{
+                width:180px;
+            }
+        }
+        .btn1, .btn2{
+            font-size: 13px;
+        }
+        #level{
+            height:870px !important;
+        }
+        .my_level{
+            min-height: 820px;
+        }
+        .my_levelol{
+            display: block;
+            &>li{
+                width:100%;
+                float:none;
+            }
+            &>.map_li{
+                height:80%;
+            }
+            & .graph{
+                width:78%;
+            }
+        }
+
+        .per_textarea{
+            padding:5px;
+            width:93%;
+        }
+
+        .contact_div>span{
+            &:nth-of-type(5){
+                height:30px;
+                text-align: center;
+            }
+        }    
+        .contactBtn{
+            width:110px;
+            height:30px;
+        }
+        #footer{
+            &>label{
+                font-size: 13px;
+            }
+        }
+
+        .toTop{
+            @include div(37px, 37px, 0, 0, 1.5px solid white);
+            line-height:32px;
+        }
+    }
+
+}
+@mixin mob1{
+    @media (max-width:$view_width5){
+        #header{
+            @include html5(200px);
+            padding-top:40px;
+        }
+        .header_line{
+            display:none;
+        }
+        .header_title{
+            margin-top:0;
+            font-size: 21px;
+        }
+        .header_domain{
+            font-size: 13px;
+        }
+        .mHeader{
+            display:block;
+            width:100%;
+            height:auto;
+        }
+        .header_mobile{
+            width:100%;
+            height:auto;
+            background-color: black;
+        }
+
+        .header_line_ulM{
+            width:100%;
+            height:30px;
+            background-color: #333;
+            @include font('open', 600, 14px, white);
+            @include flex(row, nowrap, space-around,center, "");
+            &>li{
+                @include position('re');
+                word-spacing: 5px;
+            }
+            &>li:before{
+                @include position('ab');
+                content:"";
+                width:16px;
+                height: 16px;
+                border-radius: 50%;
+                left:-20px;
+                top:0px;
+            }
+        }
+        .blog_liM:before{
+            background: url('../img/blog.png') no-repeat -3px -3px ;
+            background-size: 280%;
+        }
+        .fbook_liM:before{
+            background: url('../img/facebook.jpg') no-repeat center center;
+            background-size: 150%;
+        }
+        .git_liM:before{
+            background: url('../img/github.png') no-repeat center center;
+            background-size: 225%;
+        
+        }
+        .top_mMenu{
+            width:35px;
+            height:35px;
+            overflow:hidden;
+            margin-left:5px;
+            &>img{
+                width:35px;
+                height:35px;
+                object-fit: cover;
+               
+            }
+        }
+        .mobile_menus{
+            width:100%;
+            height: 30px;
+            display: none;
+        }
+        .header_line_ul{
+            width:100%;
+            background-color: #333;
+            @include flex(row, nowrap, space-around, center, center);
+        }
+        .p_span{
+            width:32%;
+            min-width: 165px;
+            height:270px;
+        } 
+
+        .info_banner{
+            width: 97%;
+            height:330px;
+            margin:0 auto;
+        }
+        .info_banner_sp{
+            height:330px;
+        }
+        .info_banner_in{
+            @include div(95vw, 330px, 0, 10px 10px, 0);
+        }
+        .left_banner_sp{
+            width:90vw;
+            height:130px;
+            display: block;
+            text-align: center;
+            &>img{
+                width:45%;
+                height:130px;
+                object-fit: cover;
+            }
+        }
+        .right_banner_ul{
+            @include div(92vw, 190px, 10px 0 0 0, 0, 0);
+            font-size: 12.5px;
+            &>li{
+                margin-bottom: 5px;
+            }
+            &>.banner_title{
+                font-size: 14px;;
+            }
+        }
+        .info_btn{
+            width: 97%;
+            margin:0 auto;
+            margin-top:10px;
+        }
+        .level_li{
+            padding:7px;
+            & .graph{
+                width:68%;
+                height:23px;
+            }
+        }
+
+        .level_ul>li{
+            &>i{
+                margin:0 !important;
+                padding:0;
+            }
+        }
+        .contact_div{
+            &>span{
+                text-align:center;
+            }
+            &>span>input{
+                width:93%;
+            }
+        }
+    }
+}
+@mixin mob2{
+    @media (max-width:$view_width6){
+        .header_title{
+            margin-top:0;
+            font-size: 19px;
+        }
+        .nav_ul{ 
+            width:98%;
+            &>li{
+                font-size: 13px;
+            }
+        }  
+        .title_label{
+            width:90%;
+            font-size: 12.5px;  
+        }          
+        .info_banner{
+            width: 95%;
+            height:350px;
+        }
+        .info_banner_sp{
+            height:350px;
+        }
+        .info_banner_in{
+            @include div(93vw, 350px, 0, 10px 10px, 0);
+        }
+        .right_banner_ul{
+            @include div(89vw, 190px, 10px 0 0 0, 0, 0);
+        }
+        .my_levelol{
+            border:1px solid white;
+        }
+        .map_li{
+            border:1px solid #333;
+        }
+
+        .contact_div {
+            border: 1px solid white;
+          }
+    } 
+}

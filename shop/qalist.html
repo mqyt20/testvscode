@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+<?php
+  $s_date=$_GET['s_date'];
+  if(!$s_date){
+    include "qalist.php";
+  }else{
+    include "qalist2.php";
+  }
+?>
+<div class="section_subpage_div">
+    <span class="subpage_title_span">상품 문의</span>
+    <span class="gaBtn_span">
+        <button type="button" class='gaBtn' id="qaWriteBtn">1:1문의하기</button>
+    </span>
+    <span class="qa_search_span">
+        <label class="qa_search_title">조회기간</label>
+        <ul class="qa_period_ul" id="qa_period_ul">
+            <li data="0" class="lion">오늘</li>
+            <li data="7">7일</li>
+            <li data="15">15일</li>
+            <li data="30">1개월</li>
+            <li data="90">3개월</li>
+            <li data="365">1년</li>
+            <li>선택안함</li>
+        </ul>
+        <ul class="ga_input_ul">
+            <li><input type="text" id="boardDate1" readonly></li>
+            <li><input type="text" id="boardDate2" readonly></li>
+        </ul>
+        <label class="qa_btn_label">
+            <button type="button" id="qaDateSearch">조회</button>
+        </label>
+    </span>
+    <span class="galist_area" id="qalist_area">
+        <ul class="qalist_title_ul">
+            <li>문의날짜</li>
+            <li>카테고리</li>
+            <li>제목</li>
+            <li>작성자</li>
+            <li>문의상태</li>
+        </ul>
+       <!--
+        <ul class="qalist_ul" id="qaNone">
+            <li style="width:100%;">등록된 게시물이 없습니다.</li>
+        </ul>
+        <ul class="qalist_ul">
+            <li>2021-01-07</li>
+            <li>반품/환불</li>
+            <li><img src="./images/icon_secret.png" class="lock_img">상품 문의 제목이 출력되는 곳입니다. 출력 확인용...</li>
+            <li>홍길동</li>
+            <li>답변대기</li>
+        </ul>
+      -->
+    </span>
+    <ul class="qa_pagenum_ul" id="qa_pagenum_ul">
+        <!--
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        -->
+    </ul>
+</div>

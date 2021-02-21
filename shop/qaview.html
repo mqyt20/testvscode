@@ -1,0 +1,55 @@
+<?php
+    $date = date("YmdHis");
+    include "qaview.php";
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE-Edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+    user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>Q & A</title>
+<script src="../js/jquery.js?v=3"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/menu.js?v=8"></script>
+<script src="../js/filter.js"></script>
+<script src="../js/search.js?v"></script>
+<script src="./ckeditor/ckeditor.js?v=<?php echo $r?>"></script>
+<link rel="short icon" href="./banner/favicon.ico"> 
+<link rel="stylesheet" type="text/css" href="../js/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="./css/main.css?v=3">
+<link rel="stylesheet" type="text/css" href="./css/shopmain.css?v=<?php echo $date?>">
+<link rel="stylesheet" type="text/css" href="./css/board.css?v=<?php echo $date?>">
+<link rel="stylesheet" type="text/css" href="./css/write.css?v=<?php echo $date?>">
+</head>
+<body>
+  <!--블랙스크린-->
+  <div class="qa_shadow" id="qa_shadow_secret"></div>
+  <!--상품 팝업-->
+  <div class="qaview_pop" id="product_list_secret">   
+    <span class="qaview_pop_xBtn" id="product_XBtn_secret">X</span>
+      <div style="width:100%; position:absolute; top:0; left:0;">
+        <span class="qaview_pop_sp1">비밀번호를 입력하시기 바랍니다.</span>
+        <span class="qaview_pop_sp2"><input type="password" name="qpass" id="qpass" autofocus></span>
+        <span class="qaview_pop_sp3"><button type="button" id="pass_btn">확인</button></span>
+     </div>
+    </div>
+   <!--상단 배너-->
+   <header class="headercss" id="header">
+    <?php include "topbanner.html"; ?>
+  </header>
+   <!--쇼핑몰 메뉴-->
+   <nav class="navcss">
+    <?php include "menu.html"; ?>
+  </nav> 
+  <!-- Q&A 확인 페이지 -->
+  <section class="section_subpage">
+    <?php include "view.html"; ?>
+  </section>
+     <!-- 카피라이터-->
+  <footer class="footercss">
+    <?php include "footer.html"; ?>
+  </footer>
+</body>    
+</html>

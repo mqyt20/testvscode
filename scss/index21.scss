@@ -1,0 +1,76 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    line-height:1;
+}
+*{@include base;}
+@mixin preserve($p){
+    width:200px;
+    height:200px;
+    position:relative;
+    transform-style: preserve-3d;
+    perspective:$p+px;//깊이가 깊어질 수록 측면이 짧아 보임(수치와 반비례)
+    //backface-visibility: visible;//IE에서 정상 작동(부모 요소에 사용)
+    margin:0 auto;
+    top:200px;
+    //transform:rotateX(-45deg) rotateY(45deg);
+   perspective-origin: 150px 150px;// 원근법
+}
+.divbox1{
+    @include preserve(250);
+    //border:1px solid black;
+}
+@mixin trans($part, $deg, $z, $color){
+    width:100px;
+    height:100px;
+    position:absolute;
+    text-align: center;
+    line-height:100px;
+    font-weight:bold;
+    background-color:$color;
+    opacity:0.7;
+    @if($part=='x'){
+        transform:rotateX($deg+deg) translateZ($z+px);
+    }@else if($part=="y"){
+        transform:rotateY($deg+deg) translateZ($z+px);
+    }@else{
+        transform:translateZ($z+px);
+    }
+   
+}
+.front{
+    @include trans('z', "", 50, blue);
+    animation:boxs 2s linear 0s forwards;
+}
+@keyframes boxs{
+    0%{
+        @include trans('x',0,50,blue);
+
+    }100%{
+        @include trans('x',180,-50,blue);
+        transform-origin: top;
+       
+    }
+}
+.back{
+    @include trans('y', 180, 50, green);
+    opacity:1;
+}
+.right{
+    @include trans('y', 90, 50 ,yellowgreen);
+}
+.left{
+    @include trans('y', 270, 50 ,purple);
+}
+
+.top{
+    @include trans('x', 90, 50 ,orange);
+    opacity:1;
+}
+
+
+.bottom{
+    @include trans('x',270,50,pink);
+}

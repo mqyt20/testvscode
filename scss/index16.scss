@@ -1,0 +1,102 @@
+@charset "utf-8";
+@mixin base{
+    margin:0;
+    padding:0;
+    line-height: 1;
+    box-sizing: border-box;
+}
+*{@include base;}
+@mixin size($w, $h){
+    width:$w+px;
+    height:$h+px;
+}
+@mixin position($n){
+    @if($n==1){
+        position:relative;
+    }@else if($n==2){
+        position: absolute;
+    }@else if($n==3){
+        position:fixed;
+    }
+}
+@mixin border($px, $line, $c){
+    border:$px+px $line $c;
+}
+@mixin radius($a,$b,$c,$d){
+    border-radius:$a+px $b+px $c+px $d+px;
+}
+.out{
+    @include size(500,500);
+    @include border(2,solid, gray);
+    @include radius(250,250,250,250);
+    @include position(1);
+    margin:0 auto;
+    margin-top:30px;
+    &:hover .drop{
+        top:442px;
+        transform: rotate(1080deg);
+    }
+}
+.drop{
+    @include size(50,50);
+    @include radius(7,25,7,25);
+    @include position(2);
+    left:50%;
+    top:2px;
+    //margin-top:-25px;
+    //margin-left:-25px;
+    background-color:  rgb(241, 238, 35);
+    transition: 1s ease-in-out;
+    transform-origin:left top;
+    &>span{
+        @include size(2,2);
+        @include position(2);
+        @include radius(1, 1, 1, 1);
+        background-color: rgba(75, 66, 66, 0.5);
+    }
+}
+.dot0 {
+  left: 5px;
+  top: 5px;
+}
+
+.dot1 {
+  left: 33px;
+  top: 33px;
+}
+
+.dot2 {
+  left: 12px;
+  top: 22px;
+}
+
+.dot3 {
+  left: 23px;
+  top: 12px;
+}
+
+.dot4 {
+  left: 36px;
+  top: 17px;
+}
+
+.dot5 {
+  left: 23px;
+  top: 37px;
+}
+  @mixin boxsize($x,$y,$z,$r){
+      width:$x+px;
+      height:$y+px;
+      background-color: $z;
+      position:$r;
+  }
+  .div1{
+      @include boxsize(150,150,#00aa99, absolute);
+  }
+  .div2{
+    @include boxsize(150,150,#2b3f83, absolute);
+    transition:all 0.8s ease;
+    &:hover{
+        transform:translate(20px, 20px);
+    }
+}

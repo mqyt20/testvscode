@@ -1,0 +1,68 @@
+<style>
+	.content_weekly_outline { width:360px; height:438px; margin:24px auto 24px auto; clear:both; }
+	
+	.content_weekly_outline ul {list-style:none; margin:0; padding:0;}
+
+	.a_mwoutline {width:360px; height:auto; margin:0 auto;}
+	
+	/*타이틀*/
+	.a_mwtitle {width:360px; height:60px; margin-bottom:24px;}
+	.a_mwtli1 {width:360px; height:25px; font-size:16px; font-weight:bold; text-align:center; line-height:25px; }
+	.a_mwtli2 {width:360px; height:20px; font-size:14px; text-align:center; line-height:20px; }
+	
+	/*상품*/
+	.a_mwpoutline1 {width:360px; height:auto; margin-top:24px; overflow:hidden;}
+    .pro_banner_in{ width:auto; height:300px; position:relative; display: flex; flex-flow:row nowrap; justify-content: flex-start; align-content: flex-start;}
+    .pro_banner_in>ul{width:165px; height:300px; margin-right:10px;}
+    .pro_banner_in>ul:first-of-type{ margin-left:10px;}
+	.a_mwproduct1 {width:165px; height:200px; position: relative;}
+	.a_mwproduct2 {width:165px; height:50px; line-height:50px; font-size:14px; text-align:center; font-weight:bold; background-color:#ebebeb;}
+	.a_mwproduct3 {width:165px; height:20px; line-height:20px; font-size:12px; text-align:center;  background-color:#ebebeb;}
+	.a_mwproduct4 {width:165px; height:30px; line-height:30px; font-size:14px; text-align:center; font-weight:bold; color:red; background-color:#ebebeb; }
+	.a_mwproduct5 {width:155px; height:20px; line-height:20px; top:0; right:0;}
+    .a_mwproduct1>img:first-child{ width:30px; height:20px; position: absolute; z-index:20; top:5px; right:5px;}
+
+	
+	/*디스크*/
+	.a_mwdisk {width:360px; height:30px; text-align: center; margin-top:24px;}
+    .a_mwd_sp{ width:15px;height:30px; line-height:30px; display: inline-block; }
+    .a_mwd_sp>img{width:15px; height:15px; vertical-align: top; }
+    .pro_disc_frame{ width:155px; height:30px; overflow: hidden; display: inline-block;position:relative; }
+	.pro_disc_ul {width:auto; height:30px; position:absolute;  overflow: hidden; }
+	.a_mwdisk li {float:left; line-height: 30px;}
+	.a_mwdli {width:15px; height:15px; line-height: 30px;}
+	.a_mwdli1 {width:15px; height:15px; background-color:#ff8679; border-radius:100%;  margin-top:7px; margin-left:20px;}
+    .a_mwdli1:first-of-type{ background-color:#628dc8;}
+
+</style>
+
+<div ng-controller="a_mwct" class="content_weekly_outline">
+	<!-- 아웃라인 -->
+	<div class="a_mwoutline">
+	
+	<!-- 타이틀 -->
+	<div class="a_mwtitle">
+	<ul id="weekFade">
+	<li class="a_mwtli1">WEEKLY BEST 20</li>
+	<li class="a_mwtli2">한주간 가장 많이 팔린 베스트랭킹 20</li>
+	</ul>
+	</div>
+	<!-- 타이틀 -->
+	
+	<!-- 상품출력 샘플-->
+	<div class="a_mwpoutline1">
+        <div class="pro_banner_in" id="pro_banner_in"><!-- 상품출력 샘플--></div>
+    </div>
+
+	
+	<!-- 하단 디스크 -->
+	<div class="a_mwdisk" id="a_mwdisk"> 
+        <span class="a_mwd_sp"  id="leftPic"><img src="./img/arrow1.png"></span>   
+        <span class="pro_disc_frame">
+            <ul class="pro_disc_ul" id="pro_disc_ul"><!-- 하단 디스크 --></ul>
+       </span>
+       <span class="a_mwd_sp" id="rightPic"><img src="./img/arrow2.png"></span>
+	</div>
+	<!-- 아웃라인 -->
+	</div>
+</div>

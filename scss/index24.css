@@ -1,0 +1,58 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap");
+/*font-family: 'Noto Sans KR', sans-serif; font-weight:100;300;400;500*/
+/*
+@mixin
+1.font
+2.ul,ol(flex)로 생성(float:left, display:inline-block)
+3.image(background)
+4.flex
+5.@media
+6.span, label
+7.input,select,textarea
+8.transform,transition
+9.color,opacity
+*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 1;
+}
+
+.gallery {
+  width: 300px;
+  height: 250px;
+  border: 1px solid gray;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery_label {
+  width: 100%;
+  height: 250px;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+  display: none;
+  position: absolute;
+}
+
+.gallery_label:first-child {
+  z-index: 5;
+  display: block;
+}
+
+.gallery_label > img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  z-index: 1;
+}
+
+.gallery_label > img > :first-child {
+  z-index: 5;
+}
+/*# sourceMappingURL=index24.css.map */

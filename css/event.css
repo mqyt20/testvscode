@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap');
+/*font-family: 'Noto Sans KR', sans-serif;  font-weight:300,500*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+/*font-family: 'Nanum Pen Script', cursive;  font-weight:400*/
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100;300;400;500;600;700;800;900&display=swap');
+/*font-family: 'Big Shoulders Stencil Display', cursive;  font-weight:100~900(200제외)*/
+/* 기본 세팅 */
+html, body, div, span, label,
+header, section, aside, footer, nav, 
+video,table, tr, td, th{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    font:inherit;
+}
+header, section, aside, footer, nav, main, label, span{
+    display:block;
+}
+body{
+    line-height:1;
+    -webkit-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    text-size-adjust:none;
+}
+ol, ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+img{
+    width:100%;
+}
+*{box-sizing: border-box;}
+
+/*이벤트 페이지 시작*/
+.video_section{
+    height:100vh;
+    background-color:black;
+}
+.event{
+    width:100%;
+    height:auto;
+    position:relative;
+    top:30px;
+    overflow:hidden;
+}
+.videos{
+    width:100%;
+    min-height:400px;
+    height:auto;
+    object-fit:cover;
+}
+.event_logo{
+    width:460px;
+    height:134px;
+    position:absolute;
+    z-index:5;
+    top:150px;
+    left:50%;
+    margin-left:-230px;
+    margin-top:-200px;
+}
+/*쿠폰 번호 입력 파트*/
+.coupon_box{
+    width:650px;
+    height:400px;
+    position:absolute;
+    z-index:3;
+    left:50%;
+    margin-left:-325px;
+    top:50%;
+    margin-top:-200px;
+    background:url('../mv/coupon_bg.png') 50% 0 no-repeat;
+    background-size:100% 400px;
+    padding:10px;
+    font-family:'Noto Sans KR', sans-serif;
+    letter-spacing: 0.5px;
+    word-spacing: -1px;
+}
+.coupon_box>p{
+    width:100%; 
+    text-align: center; 
+    color:rgb(37, 42, 48);
+    margin:0;
+}
+.coupon_box>p:first-of-type{
+    height:30px;
+    line-height: 30px;
+    margin-top:80px;
+    font-size: 16px; 
+    font-weight:500;
+}
+.coupon_box>p:last-of-type{
+    height:20px;
+    line-height: 20px;
+    font-size: 14px; 
+    font-weight:300;
+}
+.coupon_box> div{
+    width:100%; 
+    height:40px;
+    margin-top:10px;
+    text-align: center;
+    font-size: 15px;
+}
+.coupon_box input{
+     outline: 0;
+     text-indent: 15px;
+     border:1px solid #ccc;
+     vertical-align: top;
+     margin:0;
+     padding:0;
+}
+.custom_div>input, .email_div>input{
+    width:350px;
+    height:40px;
+}
+.coupon_no_div>input{
+    width:100px;
+    height:40px;
+    text-indent: 0;
+    text-align: center;
+}
+.coupon_no_div>span{
+    display:inline-block;
+    width:18px;height:40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    margin:0;
+}
+.btn_div>input{
+    width:150px; height:40px;
+    border:none;
+    cursor: pointer;
+    background-color:rgb(35, 40, 46);
+    text-indent:0px;
+    color:white;
+    font-size: 14px; font-weight: 500;
+}
+

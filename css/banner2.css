@@ -1,0 +1,162 @@
+@charset "UTF-8";
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap');
+/*font-family: 'Noto Sans KR', sans-serif;  font-weight:300,500*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+/*font-family: 'Nanum Pen Script', cursive;  font-weight:400*/
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100;300;400;500;600;700;800;900&display=swap');
+/*font-family: 'Big Shoulders Stencil Display', cursive;  font-weight:100~900(200제외)*/
+/* 기본 세팅 */
+html, body, div, span, label,
+header, section, aside, footer, nav, 
+video,table, tr, td, th{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    font:inherit;
+}
+header, section, aside, footer, nav, main, label, span{
+    display:block;
+}
+body{
+    line-height:1;
+    -webkit-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    text-size-adjust:none;
+}
+ol, ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+img{
+    width:100%;
+}
+*{box-sizing: border-box;}
+
+.navcss{
+    height:500px;
+    margin-top:50px;
+}
+.sectioncss{
+    width:1000px;
+    height:500px;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+}
+.banner_ul{
+    width:100%;
+    height:500px;
+    position:relative;
+    top:0;
+}
+.banner_ul>li{
+    width:100%;
+    height:500px;
+    position:absolute;
+    display:none;
+}
+.banner_ul>li:nth-child(1){
+    display:block;
+}
+.disc_ol{
+    width:140px;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    margin:0 auto;
+    bottom:10px;
+    position:relative;
+    top:-30px;
+}
+.disc_ol>li{
+    width:30px;
+    height:5px;
+    background-color: black;
+    display:inline-block;
+    cursor:pointer;
+    vertical-align: 3px;
+    opacity:0.6;
+}
+.disc_ol>li:nth-of-type(1){
+    background-color: red;
+}
+.sectioncss>span{
+  width:50px;
+  height:50px;
+  position:absolute;
+  top:50%;
+  margin-top:-25px;
+  cursor:pointer;
+  opacity:0.7;
+  z-index: 10;
+  display:none;
+}
+.left{
+    left:5px;
+}
+.right{
+    right:5px;
+}
+/* 배너 애니메이션 파트*/
+.banner_ul>li:nth-of-type(1)>span{
+    position:absolute;
+    left:80px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color:#3982ab;
+}
+.banner_ul>li:nth-of-type(1)>span:nth-of-type(1){
+ font-weight:500;
+ font-size:34px;
+ top:150px;
+ letter-spacing:-1px;
+ word-spacing:-2px;
+ display:none;
+}
+.banner_ul>li:nth-of-type(1)>span:nth-of-type(2){
+
+ font-weight:500;
+ font-size:50px;
+ top:200px;
+ display:none;
+}
+.banner_ul>li:nth-of-type(1)>span:nth-of-type(3){
+ font-weight:300;
+ font-size:20px;
+ top:270px;
+ display:none;
+}
+.banner_ul>li:nth-of-type(2)>span,.banner_ul>li:nth-of-type(3)>span{
+    width:180px;
+    height:40px;
+    border:2px solid rgba(43, 41, 33, 0.8);
+    padding-left:20px;
+    position:absolute;
+    top:350px;
+    left:-1000px;
+    z-index: 10;
+    line-height: 40px;
+    font-weight:700;
+    color:rgba(43, 41, 33, 0.8);
+    display:none;
+}
+
+.banner_ul>li:nth-of-type(4)>span{
+    position:absolute;
+    left:300px;
+    font-family: 'Nanum Pen Script', cursive;  
+    font-weight:400;
+    font-size:50px;
+    color:rgb(43, 41, 33);
+}
+.banner_ul>li:nth-of-type(4)>span:nth-of-type(1){
+    top: 180px;
+    display:none;
+}
+.banner_ul>li:nth-of-type(4)>span:nth-of-type(2){
+    top: 250px;
+    display:none;
+}
